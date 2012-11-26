@@ -44,7 +44,7 @@
 				</nav>
 			</div>
 			<div>
-				<p><?php  ?></p>
+				<p><?php echo anchor('dashboard','Admin Dashboard') ?></p>
 			</div>
 
 			<div id="contentContainer">
