@@ -43,6 +43,9 @@
 					</ul>
 				</nav>
 			</div>
+			<div>
+				<p><?php  ?></p>
+			</div>
 
 			<div id="contentContainer">
 				<div id="textContainer">
