@@ -19,7 +19,12 @@ class Dashboard extends CI_Controller{
 
 
 	public function login(){
-		$this->load->view('loginView');
+		if(!$this->input->post()){
+			$this->load->view('loginView');
+		}
+		else{
+			print_r($_POST);
+		}
 	}
 }
 

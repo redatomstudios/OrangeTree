@@ -6,7 +6,7 @@ RewriteEngine On
 
 
 
-RewriteBase /orangetree/
+RewriteBase /OrangeTree/
 
 # Do not enable rewriting for files or directories that exist
 RewriteCond %{REQUEST_FILENAME} !-f
