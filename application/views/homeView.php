@@ -32,7 +32,7 @@
 		<div id="sidebar">
 			<nav>
 				<ul>
-				<li class="selected">Home</li>
+				<li class="selected"><a href="">Home</a></li>
 				<li><a href="">About us</a></li>
 				<li><a href="">Our Rooms and Rates</a></li>
 				<li><a href="">Conservatory Restaurant</a></li>
@@ -41,6 +41,9 @@
 				<li><a href="">How to find us</a></li>
 				</ul>
 			</nav>
+		</div>
+		<div>
+			<p><?php echo anchor('dashboard','Admin Dashboard') ?></p>
 		</div>
 
 		<div id="contentContainer">
@@ -65,11 +68,11 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div id="patterBottom">
-		<div id="footer">
-		</div>
-		<div class="clear"></div>
+<div id="patterBottom">
+	<div id="footer">
 	</div>
+	<div class="clear"></div>
+</div>
 </div>
 </body>
 </html>
