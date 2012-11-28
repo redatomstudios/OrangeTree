@@ -19,8 +19,9 @@ class Dashboard extends CI_Controller{
 
 	public function index(){
 		$data['uname'] = $this->session->userdata['name'];
-		$this->load->view('admin_sidebar');
-		$this->load->view('dashboardView',$data);
+		$data['currentPage'] = 'general';
+		$this->load->view('admin_sidebar', $data);
+		$this->load->view('dashboardView', $data);
 
 	}
 

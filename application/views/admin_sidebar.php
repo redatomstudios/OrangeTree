@@ -10,7 +10,7 @@
 		<img src="<?= base_url() ?>/resources/branding/Logo.png" style="width: 100%;" />
 		<nav>
 			<ul>
-				<li><?php echo anchor('/dashboard/generalSettings', 'General Settings'); ?></li>
+				<li<?= $currentPage == 'general' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/generalSettings', 'General Settings'); ?></li>
 				<li><?php echo anchor('', 'Add New Page'); ?></li>
 				<li><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
 				<li class="spacer"></li>
