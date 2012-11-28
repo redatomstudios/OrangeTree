@@ -22,6 +22,7 @@ class Dashboard extends CI_Controller{
 		$data['currentPage'] = 'general';
 		$this->load->view('admin_sidebar', $data);
 		$this->load->view('dashboardView', $data);
+		$this->load->view('admin_pageclose');
 
 	}
 

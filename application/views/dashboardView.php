@@ -1,4 +1,3 @@
-	<div id="dashContents">
 		<h1>General Settings</h1> <!-- Replace this with each page title! -->
 		<p>Modify general website settings here</p>
 		<?= form_open_multipart() ?>
@@ -7,6 +6,3 @@
 			<label for="hotelLogo">Hotel Logo:</label> <span class="imageUpload"><input type="file" /></span> <div class="hinting">This is the hotel logo which will appear throughout the site.</div>
 		<?= form_close() ?>
 		<div id="logoPreview"></div>
-	</div>
-</body>
-</html>
