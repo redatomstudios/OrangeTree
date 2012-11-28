@@ -69,6 +69,12 @@ div#sidebar {
 	float: left;
 }
 
+div#sidebar span#name {
+	margin-top: 20px;
+	padding-left: 30px;
+	display: none;
+}
+
 div#sidebar nav {
 	margin-top: 50px;
 }
