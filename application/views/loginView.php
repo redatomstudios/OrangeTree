@@ -69,6 +69,7 @@
 </head>
 <body>
 <div>
+	<img src="<?= base_url() ?>/resources/branding/Logo.png" style="width: 100%;" />
 <?php
 echo form_open('/dashboard/login');
 echo form_input(array('name' => 'username', 'id' => 'username', 'data-hint' => 'Username'));
