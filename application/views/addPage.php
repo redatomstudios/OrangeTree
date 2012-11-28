@@ -18,7 +18,7 @@
 			
 
 		?>
-		<?= form_open_multipart() ?>
+		<?= form_open_multipart('dashboard/addPage') ?>
 			<label for="pageTitle">Page Title:</label> <?= form_input(array('id' => 'pageTitle', 'value' => $title)) ?> <div class="hinting">This is the title of the pages that appears in the sidebar and the browser.</div> <br />
 			<label for="pageTemplate">Page Template:</label> <?= form_dropdown('pageTemplate', array('Default Template'), 'Default Template', 'id = "pageTemplate" name = "pageTemplate"') ?> <div class="hinting">Select a template to arrange according to. This will always be Default Template.</div> <br />
 			<div id='sliderPreview'>
@@ -37,8 +37,10 @@
 					<?php /* } */ ?>
 				</ul>
 			</div>
-			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"><input id="sliderImage" type="file" /></span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
+			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"><?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?></span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
 			<label for="pageContent">Page Content:</label> <?= form_textarea(array('id' => 'pageContent', 'name' => 'pageContent', 'value' => $pageContent)) ?><div class="hinting">Enter the page text here</div>
 			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
+
+			<?= form_submit('submit','Submit Me') ?>
 		<?= form_close() ?>
 		<div id='patterBottom'></div>

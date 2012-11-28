@@ -64,21 +64,54 @@ class Dashboard extends CI_Controller{
 	public function editPage($id = 0)
 	{
 		# code...
-		$this->load->model('adminModel');
+		if(!$_POST){
 
-		$data['pageNames'] = $this->adminModel->getPageNames();
-		if($id ==0){
-			$data['currentPage'] = 'addPage';
-			$this->load->view('admin_sidebar', $data);
-			$this->load->view('addPage');
+			$this->load->model('adminModel');
+
+			$data['pageNames'] = $this->adminModel->getPageNames();
+			if($id ==0){
+				$data['currentPage'] = 'addPage';
+				$this->load->view('admin_sidebar', $data);
+				$this->load->view('addPage');
+			}
+			else{
+				$data['currentPage'] = '' . $id;
+				$data['pageDetails'] = $this->adminModel->getPage($id);
+				$this->load->view('admin_sidebar', $data);
+				$this->load->view('addPage',$data);	
+			}
+			$this->load->view('admin_pageclose');
 		}
-		else{
-			$data['currentPage'] = '' . $id;
-			$data['pageDetails'] = $this->adminModel->getPage($id);
-			$this->load->view('admin_sidebar', $data);
-			$this->load->view('addPage',$data);	
+	}
+
+	public function addPage(){
+
+echo $_SERVER['HTTP_ORIGIN'].base_url().'uploads/'.'<br><pre>';
+//print_r($_SERVER);
+		$config['upload_path'] = $_SERVER['HTTP_ORIGIN'].base_url().'uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = '1500';
+        $config['max_width']  = '1024';
+        $config['max_height']  = '768';
+		 
+		// You can give video formats if you want to upload any video file.
+		 
+		$this->load->library('upload', $config);
+		 
+		if ( ! $this->upload->do_upload('myFile'))
+		{
+			$error = array('error' => $this->upload->display_errors());
+			echo "<pre>";
+			print_r($error);
+		// uploading failed. $error will holds the errors.
 		}
-		$this->load->view('admin_pageclose');
+		else
+		{
+		$data = array('upload_data' => $this->upload->data());
+		 print_r($data);
+		// uploading successfull, now do your further actions
+		}
+
 	}
 
 	public function editRooms()
