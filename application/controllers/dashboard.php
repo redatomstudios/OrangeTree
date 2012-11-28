@@ -6,7 +6,8 @@ class Dashboard extends CI_Controller{
 	
 		parent::__construct();
 		$this->load->helper('form');
-		$this->load->helper('html');	
+		$this->load->helper('html');
+		$this->load->model('adminModel');
 	}
 
 
@@ -23,8 +24,42 @@ class Dashboard extends CI_Controller{
 			$this->load->view('loginView');
 		}
 		else{
-			print_r($_POST);
+
+			$data =  array();
+			$data['username'] = $this->input->post('username');
+			$data['password'] = $this->input->post('password');
+
+			if(!$name = $this->adminModel->login($data)){
+				echo "Login failed!!<br> GO HOME!!";
+			}
+			else{
+				//echo "Login success!! <br> ".$name;
+				$this->session->set_userdata(array('uname' => $name));
+
+				redirect('/dashboard');
+
+			}
+
 		}
+	}
+
+
+	public function editPages()
+	{
+		# code...
+		echo "Edit pages code!!";
+	}
+
+	public function editRooms()
+	{
+		# code...
+		echo "Edit rooms code!!";
+	}
+
+	public function generalSettings()
+	{
+		# code...
+		echo "Edit General Settings here!!";
 	}
 }
 
