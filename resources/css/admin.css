@@ -121,11 +121,11 @@ form label {
 	margin-bottom: 5px;
 }
 
-input {
+input, textarea, select {
 	margin-bottom: 15px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], select, option {
 	height: 44px;
 	font-size: 18px;
 	width: 300px;
@@ -135,7 +135,14 @@ input[type="text"], input[type="password"] {
 	background: #DDD;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+select, option {
+	width: 300px;
+	padding: 0;
+	cursor: pointer;
+	border: solid thin #AAA;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
 	outline: none;
 	background: #EEE;
 }
@@ -144,5 +151,61 @@ form div.hinting {
 	font-size: 0.9em;
 	opacity: 0.5;
 	margin-top: -10px;
+	margin-bottom: 15px;
 }
 
+textarea {
+	width: 95%;
+	height: 200px;
+	resize: none;
+}
+
+div#sliderPreview {
+	height: 400px;
+	width: 978px;
+	overflow: hidden;
+	margin: 0 0 0 -15px;
+	text-align: center;
+	padding: 15px;
+	position: relative;
+}
+
+div#sliderPreview img#slideControlRight, div#sliderPreview img#slideControlLeft {
+	position: absolute; 
+	top: 180px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+div#sliderPreview img#slideControlRight {
+	right: 30px;
+}
+
+div#sliderPreview img#slideControlLeft {
+	left: 30px;
+}
+
+img.slideControl {
+	opacity: 0.6;
+}
+
+img.slideControl:hover {
+	opacity: 1;
+}
+
+div#sliderPreview ul {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+}
+
+div#sliderPreview ul li {
+	float: left;
+	margin: 0 15px;
+	height: 400px;
+	width: 978px;
+}
+
+div#patterBottom {
+	padding: 50px 0;
+}

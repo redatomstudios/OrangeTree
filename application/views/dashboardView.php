@@ -6,3 +6,4 @@
 			<label for="hotelLogo">Hotel Logo:</label> <span class="imageUpload"><input type="file" /></span> <div class="hinting">This is the hotel logo which will appear throughout the site.</div>
 		<?= form_close() ?>
 		<div id="logoPreview"></div>
+		<div id='patterBottom'></div>

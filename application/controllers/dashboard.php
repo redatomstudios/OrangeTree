@@ -66,14 +66,19 @@ class Dashboard extends CI_Controller{
 		# code...
 		$this->load->model('adminModel');
 
+		$data['pageNames'] = $this->adminModel->getPageNames();
 		if($id ==0){
+			$data['currentPage'] = 'addPage';
+			$this->load->view('admin_sidebar', $data);
 			$this->load->view('addPage');
 		}
 		else{
-
+			$data['currentPage'] = '' . $id;
 			$data['pageDetails'] = $this->adminModel->getPage($id);
+			$this->load->view('admin_sidebar', $data);
 			$this->load->view('addPage',$data);	
 		}
+		$this->load->view('admin_pageclose');
 	}
 
 	public function editRooms()

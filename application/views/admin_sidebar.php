@@ -11,12 +11,13 @@
 		<span id="name"><?= isset($uname) ? 'Welcome, ' . $uname : '' ?></span>
 		<nav>
 			<ul>
-				<li<?= $currentPage == 'general' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/generalSettings', 'General Settings'); ?></li>
-				<li><?php echo anchor('', 'Add New Page'); ?></li>
+				<li<?= $currentPage == 'general' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/', 'General Settings'); ?></li>
+				<li<?= $currentPage == 'addPage' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/editPage/', 'Add New Page'); ?></li>
 				<li><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
 				<li class="spacer"></li>
-				<?php foreach($pageNames as $pageName) { ?>
-				<li><a href="dashboard/editPage/<?php echo $pageName['Id']; ?>"><?php echo $pageName['Title']; ?></a></li>
+				<?php $index = 0; ?>
+				<?php foreach($pageNames as $pageName) { $index++; ?>
+				<li<?= $currentPage == $index ? ' class="current"' : '' ?>><a href="<?= base_url() ?>dashboard/editPage/<?php echo $pageName['Id']; ?>"><?php echo $pageName['Title']; ?></a></li>
 				<?php  }  ?>
 
 				<li class="spacer"></li>
