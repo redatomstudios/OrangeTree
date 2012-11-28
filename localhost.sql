@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2012 at 06:39 AM
+-- Generation Time: Nov 28, 2012 at 02:02 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `orangetree`
 --
+DROP DATABASE `orangetree`;
 CREATE DATABASE `orangetree` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `orangetree`;
 
