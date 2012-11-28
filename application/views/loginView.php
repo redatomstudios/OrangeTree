@@ -5,7 +5,7 @@
 		body {
 			padding: 0;
 			margin: 0;
-			background: #333;
+			background: #150500;
 		}
 
 		body > div {
