@@ -46,6 +46,12 @@ class AdminModel extends CI_Model{
 		}
 	}
 
+	public function getPage($Id){
+
+		$query = $this->db->get_where('pages',array('Id' => $Id));
+		return($query->row());
+	}
+
 }
 
 

@@ -61,21 +61,19 @@ class Dashboard extends CI_Controller{
 	}
 
 
-	public function editPages()
+	public function editPage($id = 0)
 	{
 		# code...
-
 		$this->load->model('adminModel');
 
-		if(!($data['pages'] = $this->adminModel->getPages())){
-			echo "No Pages Found!";
+		if($id ==0){
+			$this->load->view('addPage');
 		}
 		else{
-			
-			$this->load->view('editPagesView',$data);
-		}
 
-		//echo "Edit pages code!!";
+			$data['pageDetails'] = $this->adminModel->getPage($id);
+			$this->load->view('addPage',$data);	
+		}
 	}
 
 	public function editRooms()
