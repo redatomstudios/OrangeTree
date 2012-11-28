@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2012 at 05:55 AM
+-- Generation Time: Nov 28, 2012 at 06:39 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -72,7 +72,15 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `PageContent` text NOT NULL,
   `MediaContent` text NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`Id`, `Name`, `Title`, `Template`, `SliderImages`, `PageContent`, `MediaContent`) VALUES
+(1, 'About Page', 'About Page', '<div>\r\nThis is a sample template\r\n</div>', '', 'This is the page content', ''),
+(2, 'Contact Us', 'Contact Us', 'Tintu Wilson\r\nBangalore', '', 'This is the contents', 'None for now');
 
 -- --------------------------------------------------------
 

@@ -3,7 +3,9 @@
 <title> Dashboard </title>
 </head>
 <body>
-This is the dashboard
+<div align="center" style="font-size:22px;font-weight:bold">
+	Dashboard
+</div>
 <br>
 Welcome <?php  echo $uname; ?>
 

@@ -43,10 +43,13 @@ class AdminModel extends CI_Model{
 		}
 
 		if($query->num_rows() > 0){
-			return $query->result();
+			//echo "No results";
+			return $query->result_array();
 		}
-		else
+		else{
+			echo "No results";
 			return false;
+		}
 	}
 
 }

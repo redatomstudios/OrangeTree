@@ -6,6 +6,11 @@ class Dashboard extends CI_Controller{
 	public function __construct(){
 	
 		parent::__construct();
+
+		if($this->session->userdata('name') == FALSE && $this->uri->uri_string() != 'dashboard/login'){
+			redirect('/dashboard/login');
+		}
+
 		$this->load->helper('form');
 		$this->load->helper('html');
 		$this->load->model('adminModel');
@@ -15,9 +20,7 @@ class Dashboard extends CI_Controller{
 	public function index(){
 
 
-		if($this->session->userdata('name') == FALSE){
-			redirect('/dashboard/login');
-		}
+		
 		
 		$data['uname'] = $this->session->userdata['name'];
 		$this->load->view('dashboardView',$data);
@@ -62,14 +65,15 @@ class Dashboard extends CI_Controller{
 
 		$this->load->model('adminModel');
 
-		if(!$pages = $this->adminModel->getPages()){
+		if(!($data['pages'] = $this->adminModel->getPages())){
 			echo "No Pages Found!";
 		}
 		else{
-			$this->load->view('editPages',$pages);
+			
+			$this->load->view('editPagesView',$data);
 		}
 
-		echo "Edit pages code!!";
+		//echo "Edit pages code!!";
 	}
 
 	public function editRooms()
