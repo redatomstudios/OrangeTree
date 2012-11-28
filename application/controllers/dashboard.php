@@ -1,6 +1,7 @@
 <?php
 class Dashboard extends CI_Controller{
 	
+	
 
 	public function __construct(){
 	
@@ -12,14 +13,21 @@ class Dashboard extends CI_Controller{
 
 
 	public function index(){
-		if($this->session->userdata('uname') == FALSE){
+
+
+		if($this->session->userdata('name') == FALSE){
 			redirect('/dashboard/login');
 		}
-		$this->load->view('dashboardView');
+		
+		$data['uname'] = $this->session->userdata['name'];
+		$this->load->view('dashboardView',$data);
+
 	}
 
 
 	public function login(){
+
+
 		if(!$this->input->post()){
 			$this->load->view('loginView');
 		}
@@ -34,19 +42,33 @@ class Dashboard extends CI_Controller{
 			}
 			else{
 				//echo "Login success!! <br> ".$name;
-				$this->session->set_userdata(array('uname' => $name));
-
-				redirect('/dashboard');
-
+				$this->session->set_userdata(array('name' => $name));
+				 redirect('/dashboard');
 			}
 
 		}
+	}
+
+	public function logout(){
+
+		$this->session->sess_destroy();
+		redirect('\dashboard');
 	}
 
 
 	public function editPages()
 	{
 		# code...
+
+		$this->load->model('adminModel');
+
+		if(!$pages = $this->adminModel->getPages()){
+			echo "No Pages Found!";
+		}
+		else{
+			$this->load->view('editPages',$pages);
+		}
+
 		echo "Edit pages code!!";
 	}
 

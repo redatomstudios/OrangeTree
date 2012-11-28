@@ -23,6 +23,32 @@ class AdminModel extends CI_Model{
 		}
 	}
 
+
+	/*
+	*If start = 0, get full table
+
+
+
+	*/
+	public function getPages($start = 0, $limit = 0){
+
+		if($limit != 0 ){
+			$query = $this->db->get('pages',$start,$limit);
+		}
+		else if($start != 0){
+			$query = $this->db->get('pages',$start);
+		}
+		else{
+			$query = $this->db->get('pages');
+		}
+
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+		else
+			return false;
+	}
+
 }
 
 

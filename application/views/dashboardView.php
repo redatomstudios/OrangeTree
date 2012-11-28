@@ -5,6 +5,12 @@
 <body>
 This is the dashboard
 <br>
+Welcome <?php  echo $uname; ?>
+
+<div align="right">
+	<?php echo anchor('/dashboard/logout', 'Logout'); ?>
+</div>
+<br>
 <div>
 	<?php echo anchor('/dashboard/editPages', 'Edit Pages'); ?>
 <br>
