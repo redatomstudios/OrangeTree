@@ -39,7 +39,7 @@
 			margin-top: 20px;
 		}
 	</style>
-	<script src="/resources/js/jquery-1.8.2.min.js"></script>
+	<script src="<?= base_url() ?>/resources/js/jquery-1.8.2.min.js"></script>
 	<script>
 		jQuery(document).ready(function($){
 		$.each($('input[type="text"], input[type="password"]'), function(){
