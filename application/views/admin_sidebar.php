@@ -15,9 +15,10 @@
 				<li><?php echo anchor('', 'Add New Page'); ?></li>
 				<li><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
 				<li class="spacer"></li>
-				<?php /*foreach(page as thisPage) {*/ ?>
-				<li><a href="<?php /* page link */ ?>"><?php /* page title */ ?></a></li>
-				<?php /* } */ ?>
+				<?php foreach($pageNames as $pageName) { ?>
+				<li><a href="dashboard/viewPage/<?php echo $pageName['Id']; ?>"><?php echo $pageName['Title']; ?></a></li>
+				<?php  }  ?>
+
 				<li class="spacer"></li>
 				<li><?php echo anchor('/dashboard/logout', 'Logout'); ?></li>
 			</ul>

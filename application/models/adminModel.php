@@ -30,17 +30,11 @@ class AdminModel extends CI_Model{
 
 
 	*/
-	public function getPages($start = 0, $limit = 0){
+	public function getPageNames(){
 
-		if($limit != 0 ){
-			$query = $this->db->get('pages',$start,$limit);
-		}
-		else if($start != 0){
-			$query = $this->db->get('pages',$start);
-		}
-		else{
-			$query = $this->db->get('pages');
-		}
+		$this->db->select('Id,Title');
+		$query = $this->db->get('pages');
+		
 
 		if($query->num_rows() > 0){
 			//echo "No results";
