@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="resources/css/main.css" type="text/css" media="screen">
-	<script src="resources/js/jquery-1.8.2.min.js"></script>
-	<script src="resources/js/h2o.js"></script>
+	<link rel="stylesheet" href="<?= base_url() ?>resources/css/main.css" type="text/css" media="screen">
+	<script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js"></script>
+	<script src="<?= base_url() ?>resources/js/h2o.js"></script>
 
 	<title>The Orange Tree Hotel</title>
 </head>
@@ -13,8 +13,8 @@
 </div>
 <div class="wrapper">
 	<div id="slider">
-		<img class="slideControl" id="slideControlLeft" src="resources/images/slider/sliderLeft.png" alt="Previous" />
-		<img class="slideControl" id="slideControlRight" src="resources/images/slider/sliderRight.png" alt="Next" />
+		<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>resources/images/slider/sliderLeft.png" alt="Previous" />
+		<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>resources/images/slider/sliderRight.png" alt="Next" />
 		<ul>
 			<li style="background: url('resources/images/slider/exterior.jpg') center center no-repeat; background-size: 978px 400px;">
 			</li>
