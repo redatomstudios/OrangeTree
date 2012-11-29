@@ -61,16 +61,18 @@ class Dashboard extends CI_Controller{
 	}
 
 
-	public function editPage($id = 0)
+	public function editPage($pageId = 0,$mid)
 	{
 		# code...
 		if(!$_POST){
 
 			$this->load->model('adminModel');
 
+			$data['pageId'] = $pageId;
 			$data['pageNames'] = $this->adminModel->getPageNames();
 			if($id ==0){
 				$data['currentPage'] = 'addPage';
+
 				$this->load->view('admin_sidebar', $data);
 				$this->load->view('addPage');
 			}
@@ -86,47 +88,41 @@ class Dashboard extends CI_Controller{
 
 	public function addPage(){
 
-		echo "<pre> <br>";
-		print_r($_FILES['sliderImage']);
-		echo "<pre> <br>";
-		echo $_SERVER['HTTP_HOST'].base_url().'uploads';
-		echo "<br>";
-		//echo is_dir('http://localhost\OrangeTree\uploads')?'Dir exists':'Dir donot exists';
-		if(is_dir('http://localhost/OrangeTree/uploads')){
-			echo "Dir exists";
-		}
-		else{
-			echo "NOT!!!";
-		}
-		echo "<br>";
-		print_r($_SERVER);
-		$config['upload_path'] = $_SERVER['HTTP_ORIGIN'].base_url().'uploads/';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = '1500';
-        $config['max_width']  = '1024';
-        $config['max_height']  = '768';
-		 
-		// You can give video formats if you want to upload any video file.
-		 
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
-
-		if ( ! $this->upload->do_upload('sliderImage'))
-		{
-			$error = array('error' => $this->upload->display_errors());
-			echo "<pre>";
-			print_r($error);
-		// uploading failed. $error will holds the errors.
-		}
-		else
-		{
-		$data = array('upload_data' => $this->upload->data());
-		 print_r($data);
-		// uploading successfull, now do your further actions
-		}
+		
 
 	}
 
+
+	// To display back
+	// header("Content-Type: image/jpg");
+	// echo base64_decode($encoded);
+	public function uploadSliderImage()
+	{
+
+		$pageId = $this->input->post('pageId');
+		if($_FILES['sliderImage']['type'] == 'image/jpeg' || $_FILES['sliderImage']['type'] == 'image/jpg'){
+			
+			$this->load->model('adminModel');
+
+			$handle = FOPEN($_FILES['sliderImage']['tmp_name'],'r');
+			$file_content = FREAD($handle,FILESIZE($_FILES['sliderImage']['tmp_name']));
+			FCLOSE($handle);
+			$encoded = CHUNK_SPLIT(BASE64_ENCODE($file_content)); 
+
+			if($this->adminModel->insertSliderImage($pageId,$encoded)){
+				echo "Slider Images uploaded Successfullt!!";
+			}
+			else
+				echo "Upload failed!!";
+
+		}
+		else{
+			echo "Not the right type";
+		}
+		
+		//echo $data;
+
+	}
 	public function editRooms()
 	{
 		# code...
