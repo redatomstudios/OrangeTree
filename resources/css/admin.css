@@ -67,6 +67,7 @@ div#sidebar {
 	border-right: solid 2px #FFF;
 	color: #FFF;
 	float: left;
+	overflow: auto;
 }
 
 div#sidebar span#name {
@@ -84,7 +85,6 @@ div#sidebar li {
 	padding-right: 20px;
 	height: 2em;
 	line-height: 2em;
-	overflow: auto;
 }
 
 li > a {
@@ -103,7 +103,7 @@ div#sidebar li.current {
 }
 
 div#dashContents {
-	background: #EEE;
+	background: #FFF;
 	height: 100%;
 	overflow: auto;
 	padding-left: 50px;
@@ -117,7 +117,7 @@ div#dashContents h1 {
 }
 
 form {
-	background: #FFF;
+	background: rgba(0, 0, 0, 0.07);
 	padding: 10px;
 	margin: 10px 50px 0 0;
 }

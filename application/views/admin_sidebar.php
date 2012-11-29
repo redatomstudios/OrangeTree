@@ -18,9 +18,18 @@
 				<li><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
 				<li><?php echo anchor('/dashboard/editRooms', 'Media Content'); ?></li>
 				<li class="spacer"></li>
-				<?php $index = 0; ?>
-				<?php foreach($pageNames as $pageName) { $index++; ?>
-				<li<?= $currentPage == $index ? ' class="current"' : '' ?>><a href="<?= base_url() ?>dashboard/editPage/<?php echo $pageName['Id']; ?>"><?php echo $pageName['Title']; ?></a></li>
+				<?php 
+				/* 
+				$index is used to highlight the current item in the sidebar. 
+				Since the pages are listed dynamically, we can't do this normally. 
+				We attach a index value to each link: ?mid=$index.
+				Then when the link is clicked, we check if the mid matches an index,
+				if it does we attach a 'current' class to it. YAY! :D
+				*/
+				$index = 0; 
+				?>
+				<?php foreach($pageNames as $pageName) { $index++; ?> 
+				<li<?= isset($_GET['mid']) && $_GET['mid'] == $index ? ' class="current"' : '' ?>><a href="<?= base_url() ?>dashboard/editPage/<?php echo $pageName['Id']; ?>?mid=<?= $index ?>"><?php echo $pageName['Title']; ?></a></li>
 				<?php  }  ?>
 
 				<li class="spacer"></li>

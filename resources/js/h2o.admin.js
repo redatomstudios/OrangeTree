@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
 		// pass the dom node (ex. $(selector)[0] for jQuery users)
 		element: document.getElementById('file-uploader'),
 		allowedExtensions: ['png'],
-		debug: true,
+		debug: false,
 		// path to server-side upload script
 		action: '/OrangeTree/server/logoHandler.php'
 	}); 
