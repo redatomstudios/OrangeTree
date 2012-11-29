@@ -13,6 +13,8 @@
 	border: solid thin #AAA;
 	color: #000;
 	margin-bottom: 15px;
+	float: left;
+	margin-right: 20px;
 }
 .qq-upload-button-hover {
 	background: #EEE;
@@ -89,6 +91,5 @@
 	color: #FFFFFF;
 }
 .qq-upload-list li.qq-upload-fail {
-	background-color: #D60000;
-	color: #FFFFFF;
+	background: none;
 }
