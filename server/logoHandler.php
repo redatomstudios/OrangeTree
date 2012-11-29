@@ -20,7 +20,9 @@ echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
 /******************************************/
 
-
+$uploader = new qqFileUploader(array('png'), 1.5 * 1024 * 1024);
+$result = $uploader->handleUpload('../resources/branding/');
+echo($result['success']);
 
 /**
  * Handle file uploads via XMLHttpRequest
@@ -168,7 +170,7 @@ class qqFileUploader {
             }
         }
         
-        if ($this->file->save($uploadDirectory . $filename . '.' . $ext)){
+        if ($this->file->save($uploadDirectory . 'Logo.png')){
             return array('success'=>true);
         } else {
             return array('error'=> 'Could not save uploaded file.' .
