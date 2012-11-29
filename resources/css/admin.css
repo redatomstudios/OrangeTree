@@ -180,8 +180,7 @@ input[type='submit'], input[type='button'] {
 }
 
 div#sliderPreview {
-	height: 400px;
-	width: 978px;
+	width: 100%;
 	overflow: hidden;
 	margin: 0 0 0 -15px;
 	text-align: center;
@@ -212,17 +211,44 @@ img.slideControl:hover {
 	opacity: 1;
 }
 
-div#sliderPreview ul {
+/*div#sliderPreview ul {
 	position: absolute;
 	overflow: hidden;
 	height: 100%;
+}*/
+
+div#sliderThumbs {
+	margin: 10px 0 30px;
+	height: 100px;
+}
+
+div#sliderThumbs li {
+	height: 100%;
+	width: 122px;
+	float: left;
+	padding: 0 10px;
+	border: solid 2px rgba(0, 0, 0, 0);
+	background: #FFF;
+	cursor: pointer;
+}
+
+div#sliderThumbs li:hover {
+	border: solid 2px black;
+}
+
+div#sliderThumbs li > img {
+	width: 122px;
+	margin: auto 0;
 }
 
 div#sliderPreview ul li {
 	float: left;
-	margin: 0 15px;
-	height: 400px;
-	width: 978px;
+	width: 100%;
+}
+
+div#sliderPreview ul li > img {
+	width: 100%;
+
 }
 
 div#patterBottom {

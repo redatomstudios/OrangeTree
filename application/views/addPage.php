@@ -21,26 +21,37 @@
 		<?= form_open_multipart('dashboard/addPage') ?>
 			<label for="pageTitle">Page Title:</label> <?= form_input(array('id' => 'pageTitle', 'value' => $title)) ?> <div class="hinting">This is the title of the pages that appears in the sidebar and the browser.</div> <br />
 			<label for="pageTemplate">Page Template:</label> <?= form_dropdown('pageTemplate', array('Default Template'), 'Default Template', 'id = "pageTemplate" name = "pageTemplate"') ?> <div class="hinting">Select a template to arrange according to. This will always be Default Template.</div> <br />
+			<label for="pageContent">Page Content:</label> <?= form_textarea(array('id' => 'pageContent', 'name' => 'pageContent', 'value' => $pageContent)) ?><div class="hinting">Enter the page text here</div>
+			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
+			<?= form_submit('submit','Save') ?>
+		<?= form_close() ?>
+		<?= form_open_multipart() ?>
+			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"> <?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?> </span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
 			<div id='sliderPreview'>
 				<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>/resources/images/slider/sliderLeft.png" alt="Previous" />
 				<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>/resources/images/slider/sliderRight.png" alt="Next" />
 				<ul>
 					<?php /* foreach($sliderimage as $image) { */ ?>
-					<li style="background: url('<?php /* image url */ ?>) center center no-repeat; background-size: 978px 400px;"></li>
+					<!-- <li><img src="" /></li> -->
 					<?php /* } */ ?>
+					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
+					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
+<!-- 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li> -->
 				</ul>
 			</div>
 			<div id="sliderThumbs">
 				<ul>
 					<?php /* foreach($sliderimage as $image) { */ ?>
-					<li style="background: url('<?php /* image url */ ?>) center center no-repeat; background-size: 122px 50px;"></li>
+					<!-- <li style="background: url('<?php /* image url */ ?>) center center no-repeat; background-size: 122px 50px;"><img src="" /></li> -->
 					<?php /* } */ ?>
+					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
+					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
 				</ul>
 			</div>
-			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"> <?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?> </span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
-			<label for="pageContent">Page Content:</label> <?= form_textarea(array('id' => 'pageContent', 'name' => 'pageContent', 'value' => $pageContent)) ?><div class="hinting">Enter the page text here</div>
-			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
-
-			<?= form_submit('submit','Submit Me') ?>
+			<?= form_submit('submit','Save Slider') ?>
 		<?= form_close() ?>
+
 		<div id='patterBottom'></div>
