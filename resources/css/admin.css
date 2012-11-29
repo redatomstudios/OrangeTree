@@ -211,11 +211,10 @@ img.slideControl:hover {
 	opacity: 1;
 }
 
-/*div#sliderPreview ul {
-	position: absolute;
+div#sliderPreview ul {
+	position: relative;
 	overflow: hidden;
-	height: 100%;
-}*/
+}
 
 div#sliderThumbs {
 	margin: 10px 0 30px;
@@ -238,12 +237,19 @@ div#sliderThumbs li:hover {
 
 div#sliderThumbs li > img {
 	width: 122px;
-	margin: auto 0;
+	margin: 10px 0;
+}
+
+div#sliderThumbs li > input[type="button"] {
+	height: 2em;
+	width: 100%;
+	text-align: center;
+	padding: 0;
 }
 
 div#sliderPreview ul li {
 	float: left;
-	width: 100%;
+	display: inline;
 }
 
 div#sliderPreview ul li > img {

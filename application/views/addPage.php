@@ -36,8 +36,8 @@
 					<?php /* } */ ?>
 					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
 					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
-<!-- 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
-					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li> -->
+					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
 				</ul>
 			</div>
 			<div id="sliderThumbs">
@@ -46,9 +46,9 @@
 					<!-- <li style="background: url('<?php /* image url */ ?>) center center no-repeat; background-size: 122px 50px;"><img src="" /></li> -->
 					<?php /* } */ ?>
 					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
-					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
-					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
-					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /><input type="button" value="remove" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /><input type="button" value="remove" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li>
 				</ul>
 			</div>
 			<?= form_submit('submit','Save Slider') ?>
