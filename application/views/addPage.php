@@ -51,7 +51,8 @@
 					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li>
 				</ul>
 			</div>
-			<?= form_submit('submit','Save Slider') ?>
+			<br class="clearFix" />
+			<?= form_submit(array('name' => 'submit', 'style' => 'margin-top: 20px;'),'Save Slider') ?>
 		<?= form_close() ?>
 
 		<div id='patterBottom'></div>
