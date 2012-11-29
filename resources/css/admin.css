@@ -160,6 +160,11 @@ textarea {
 	resize: none;
 }
 
+input[type='submit'] {
+	height: 3em;
+	padding: 0 50px;
+}
+
 div#sliderPreview {
 	height: 400px;
 	width: 978px;

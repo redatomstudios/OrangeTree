@@ -14,20 +14,22 @@ var slideWidth = 0, slideCount = 0, sliderState;
 var setupSlider = function() {
 	var totalWidth = 0;
 	var slideTrain = $('div#slider ul').children('li');
-	slideCount = slideTrain.length;
-
-	if(slideCount <= 1) {
-		return false;
-	}
-
-	slideWidth = $(slideTrain[0]).outerWidth(true);
-	totalWidth = slideWidth*slideCount;
-
-	if(totalWidth) {
-		$('div#slider ul').width(totalWidth).css({left: -slideWidth*(currentSlide - 1) + 'px'});
-		gotoSlide(currentSlide);
-	} else {
-		setTimeout(setupSlider, 100);
+	if(slideTrain) {
+		slideCount = slideTrain.length;
+	
+		if(slideCount <= 1) {
+			return false;
+		}
+	
+		slideWidth = $(slideTrain[0]).outerWidth(true);
+		totalWidth = slideWidth*slideCount;
+	
+		if(totalWidth) {
+			$('div#slider ul').width(totalWidth).css({left: -slideWidth*(currentSlide - 1) + 'px'});
+			gotoSlide(currentSlide);
+		} else {
+			setTimeout(setupSlider, 100);
+		}
 	}
 }
 
