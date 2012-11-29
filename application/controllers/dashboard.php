@@ -86,7 +86,8 @@ class Dashboard extends CI_Controller{
 
 	public function addPage(){
 
-		echo $_FILES['sliderImage']['']
+		echo "<pre> <br>";
+		print_r($_FILES['sliderImage']);
 		echo "<pre> <br>";
 		echo $_SERVER['HTTP_HOST'].base_url().'uploads';
 		echo "<br>";
