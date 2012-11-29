@@ -37,7 +37,7 @@
 					<?php /* } */ ?>
 				</ul>
 			</div>
-			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"><?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?></span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
+			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"> <?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?> </span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
 			<label for="pageContent">Page Content:</label> <?= form_textarea(array('id' => 'pageContent', 'name' => 'pageContent', 'value' => $pageContent)) ?><div class="hinting">Enter the page text here</div>
 			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
 

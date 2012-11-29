@@ -86,8 +86,19 @@ class Dashboard extends CI_Controller{
 
 	public function addPage(){
 
-echo $_SERVER['HTTP_ORIGIN'].base_url().'uploads/'.'<br><pre>';
-//print_r($_SERVER);
+		echo $_FILES['sliderImage']['']
+		echo "<pre> <br>";
+		echo $_SERVER['HTTP_HOST'].base_url().'uploads';
+		echo "<br>";
+		//echo is_dir('http://localhost\OrangeTree\uploads')?'Dir exists':'Dir donot exists';
+		if(is_dir('http://localhost/OrangeTree/uploads')){
+			echo "Dir exists";
+		}
+		else{
+			echo "NOT!!!";
+		}
+		echo "<br>";
+		print_r($_SERVER);
 		$config['upload_path'] = $_SERVER['HTTP_ORIGIN'].base_url().'uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = '1500';
@@ -97,8 +108,9 @@ echo $_SERVER['HTTP_ORIGIN'].base_url().'uploads/'.'<br><pre>';
 		// You can give video formats if you want to upload any video file.
 		 
 		$this->load->library('upload', $config);
-		 
-		if ( ! $this->upload->do_upload('myFile'))
+		$this->upload->initialize($config);
+
+		if ( ! $this->upload->do_upload('sliderImage'))
 		{
 			$error = array('error' => $this->upload->display_errors());
 			echo "<pre>";
