@@ -11,3 +11,6 @@
 		<?= form_close() ?>	
 		<div id="logoPreview"></div>
 		<div id='patterBottom'></div>
+		<script>
+			jQuery(document).ready(function(){$('.qq-upload-list').hide();});
+		</script>
