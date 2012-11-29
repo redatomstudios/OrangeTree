@@ -399,6 +399,7 @@ qq.FileUploaderBasic.prototype = {
     _onComplete: function(id, fileName, result){
         this._filesInProgress--;                 
         if (result.error){
+            $('.qq-upload-list').hide();
             this._options.showMessage(result.error);
         }             
     },
