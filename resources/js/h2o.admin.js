@@ -8,6 +8,6 @@ jQuery(document).ready(function($){
 		allowedExtensions: ['png'],
 		debug: false,
 		// path to server-side upload script
-		action: '/OrangeTree/server/logoHandler.php'
+		action: '../../server/logoHandler.php'
 	}); 
 });
