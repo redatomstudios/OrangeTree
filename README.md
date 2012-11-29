@@ -2,8 +2,8 @@ OrangeTree
 ==========
 
 General Settings View:
-  - ### Enable Logo Upload w/ AJAX ###
-  - Page reload on logo upload
+  x Enable Logo Upload w/ AJAX
+  x Page reload on logo upload
   - Enable General Setting editing
 
 Dashboard Sidebar:
@@ -12,3 +12,6 @@ Dashboard Sidebar:
 Add/Edit Page View:
   - Enable Editing
   - Work out problems with Slider graphics management
+
+Media Content:
+  - Add price table
