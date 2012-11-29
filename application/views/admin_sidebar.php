@@ -1,8 +1,8 @@
 <html>
 <head>
 <title>Dashboard</title>
-<link rel="stylesheet" href="<?= base_url() ?>/resources/css/admin.css" />
 <link rel="stylesheet" href="<?= base_url() ?>/resources/css/fileuploader.css" />
+<link rel="stylesheet" href="<?= base_url() ?>/resources/css/admin.css" />
 <script src="<?= base_url() ?>/resources/js/jquery-1.8.2.min.js" ></script>
 <script src="<?= base_url() ?>/resources/js/fileuploader.js"></script>
 <script src="<?= base_url() ?>/resources/js/h2o.admin.js"></script>

@@ -160,9 +160,10 @@ textarea {
 	resize: none;
 }
 
-input[type='submit'] {
+input[type='submit'], input[type='button'] {
 	height: 3em;
 	padding: 0 50px;
+	cursor: pointer;
 }
 
 div#sliderPreview {
