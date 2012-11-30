@@ -2,13 +2,12 @@
 		<p>Edit the contents for this page here:</p>
 
 		<?php
-			if(isset($pageDetails)){
+			if(isset($pageDetails)) {
 				$title = $pageDetails->Title;
 				$template = $pageDetails->Template;
 				$pageContent = $pageDetails->PageContent;
 				$mediaContent = $pageDetails->MediaContent;
-			}
-			else{
+			} else {
 
 				$title = '';
 				$template = '';
@@ -26,9 +25,19 @@
 			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
 			<?= form_submit('submit','Save') ?>
 		<?= form_close() ?>
+		<?= form_open_multipart('server/slideHandler.php') ?>
+			<label for="sliderImage">Slider Images:</label> <span id="slide-uploader"></span> <div class="clearfix"></div> 
+			<div class="hinting">
+				Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> 
+				If no images are uploaded, the slider will not be displayed on the page. <br /> 
+				If only a single image is uploaded, then a static image will be displayed.<br />
+				<span class="caution">
+					CAUTION: ONLY UPLOAD JPEG/JPG IMAGES OF DIMENSIONS 978x400px.
+				</span>
+			</div>
+		<?= form_close() ?>
 		<?= form_open_multipart('dashboard/uploadSliderImage') ?>
-		<input type="hidden" name="pageId" value="<?=$pageId?>">
-			<label for="sliderImage">Slider Images:</label> <span class="imageUpload"> <?= form_upload(array('id' => 'sliderImage','name' => 'sliderImage', 'size' => 50)) ?> </span> <div class="hinting">Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> If no images are uploaded, the slider will not be displayed on the page. <br /> If only a single image is uploaded, then a static image will be displayed.</div>
+			<input type="hidden" name="pageId" value="<?=$pageId?>">
 			<div id='sliderPreview'>
 				<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>/resources/images/slider/sliderLeft.png" alt="Previous" />
 				<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>/resources/images/slider/sliderRight.png" alt="Next" />

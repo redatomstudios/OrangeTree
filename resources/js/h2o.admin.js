@@ -12,7 +12,7 @@
 var slideWidth = 0, slideCount = 0, sliderState;
 
 var setupSlider = function() {
-	console.log('setup');
+	//console.log('setup');
 	var totalWidth = 0;
 	var slideTrain = $('div#sliderPreview ul').children('li');
 	if(slideTrain) {
@@ -26,10 +26,10 @@ var setupSlider = function() {
 		totalWidth = slideWidth*slideCount;
 		
 		if(totalWidth) {
-			console.log($('#sliderPreview li').width(), $('#sliderPreview ul').width());
+			//console.log($('#sliderPreview li').width(), $('#sliderPreview ul').width());
 			$('div#sliderPreview ul').width(totalWidth).css({left: -slideWidth*(currentSlide - 1) + 'px'});
 			$('#sliderPreview li').width($('#sliderPreview').width() + 'px');
-			console.log($('#sliderPreview li').width(), $('#sliderPreview ul').width());
+			//console.log($('#sliderPreview li').width(), $('#sliderPreview ul').width());
 			gotoSlide(currentSlide);
 		} else {
 			setTimeout(setupSlider, 100);
@@ -57,19 +57,20 @@ var gotoSlide = function(slide) {
 }
 
 var autosizeSlider = function() {
-	console.log('autosize');
-	var $newHeight;
-	if(!($newHeight = $('#sliderPreview li > img').height())) {
-		setTimeout('autosizeSlider()', 100);
-	} else {
-		$('#sliderPreview').height(function(){
-			return $newHeight + 'px';
-		});
-		$('img#slideControlRight, img#slideControlLeft').each(function(){
-			$(this).css({top: ($newHeight / 2 - 15) + 'px'});
-		})
-		console.log($('#sliderPreview li').width());
-		setupSlider();
+	if($('#sliderPreview')){
+		var $newHeight;
+		if(!($newHeight = $('#sliderPreview li > img').height())) {
+			setTimeout('autosizeSlider()', 100);
+		} else {
+			$('#sliderPreview').height(function(){
+				return $newHeight + 'px';
+			});
+			$('img#slideControlRight, img#slideControlLeft').each(function(){
+				$(this).css({top: ($newHeight / 2 - 15) + 'px'});
+			})
+			//console.log($('#sliderPreview li').width());
+			setupSlider();
+		}
 	}
 }
 
@@ -91,7 +92,18 @@ jQuery(document).ready(function($){
 			allowedExtensions: ['png'],
 			debug: false,
 			// path to server-side upload script
-			action: '../../server/logoHandler.php'
+			action: './server/logoHandler.php'
+		}); 
+	}
+
+	if(document.getElementById('slide-uploader')) {
+		var uploader = new qq.FileUploader({
+			// pass the dom node (ex. $(selector)[0] for jQuery users)
+			element: document.getElementById('slide-uploader'),
+			allowedExtensions: ['jpg', 'jpeg'],
+			debug: true,
+			// path to server-side upload script
+			action: './server/slideHandler.php'
 		}); 
 	}
 
