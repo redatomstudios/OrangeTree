@@ -54,9 +54,13 @@ class AdminModel extends CI_Model{
 
 	public function insertSliderImage($pageId,$encodedImage){
 		
-		if($this->db->update('pages', array('SliderImages' => $encodedImage), array('id' => $pageId))){
+<<<<<<< HEAD
+		if($this->db->query('UPDATE `pages` SET `SliderImages` = "'.$encodedImage.'" WHERE Id = '.$pageId)){
 
 			//echo $this->db->last_query();
+=======
+		if($this->db->update('pages', array('SliderImages' => $encodedImage), array('Id' => $pageId)))
+>>>>>>> 2d49a72d46724502a000c02854e4a9966ff6050d
 			return true;
 		}
 		else

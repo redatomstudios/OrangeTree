@@ -22,6 +22,7 @@ class Dashboard extends CI_Controller{
 		$this->load->model('adminModel');
 
 		$data['pageNames'] = $this->adminModel->getPageNames();
+		$data['pageId'] = 0;
 		$data['currentPage'] = 'general';
 		$this->load->view('admin_sidebar', $data);
 		$this->load->view('dashboardView', $data);
@@ -70,19 +71,21 @@ class Dashboard extends CI_Controller{
 				 //header("Content-Type: image/jpg");
 				// echo base64_decode($data['sliderImage']);
 
+		$this->load->model('adminModel');
 
+		$data['pageId'] = $pageId;
+		$data['pageNames'] = $this->adminModel->getPageNames();
 		//Adding a new page
 		if(!$_POST){
 
-			$this->load->model('adminModel');
+			
 
-			$data['pageId'] = $pageId;
-			$data['pageNames'] = $this->adminModel->getPageNames();
+			
 			if($pageId ==0){
 				$data['currentPage'] = 'addPage';
 
 				$this->load->view('admin_sidebar', $data);
-				$this->load->view('addPage');
+				$this->load->view('addPage',$data);
 			}
 
 			//Editing a page
