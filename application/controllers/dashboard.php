@@ -21,6 +21,7 @@ class Dashboard extends CI_Controller{
 		
 
 		$data['pageNames'] = $this->adminModel->getPageNames();
+		$data['generalSettings'] = $this->adminModel->getGeneralSettings();
 		$data['pageId'] = 0;
 		$data['currentPage'] = 'general';
 		$this->load->view('admin/sidebar', $data);
@@ -57,69 +58,62 @@ class Dashboard extends CI_Controller{
 	public function logout(){
 
 		$this->session->sess_destroy();
-		redirect('\dashboard');
+		redirect('\home');
 	}
 
 
-	public function editPage($pageId = 0)
-	{
-		# code...
+	public function editPage($pageId = 0){
 
 		$data['pageId'] = $pageId;
-		$data['pageNames'] = $this->adminModel->getPageNames();
 
-		//Adding a new page
-		if($pageId ==0){
-			$data['currentPage'] = 'addPage';
-			$this->load->view('admin/sidebar', $data);
-			$this->load->view('admin/addPage',$data);
-		}
+		if(!$_POST){
+			$data['pageNames'] = $this->adminModel->getPageNames();
 
-		//Editing a page
-		else{
-		
-			$data['currentPage'] = $pageId;
-			$data['pageDetails'] = $this->adminModel->getPage($pageId);
-			$sliderImages = explode(';', $data['pageDetails']->SliderImages);
-
-			//echo "No of images: ".sizeof($sliderImages);
-			
-			if($sliderImages != ''){
-				$imageNames = array();
-				foreach ($sliderImages as $image) {
-					# code...
-					$imageNames[] = explode(':', $image)[0];
-				}
-				$data['pageDetails']->SliderImages = $imageNames;
+			//Adding a new page
+			if($pageId ==0){
+				$data['currentPage'] = 'addPage';
+				$this->load->view('admin/sidebar', $data);
+				$this->load->view('admin/addPage',$data);
 			}
 
-			$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' =>1.5 * 1024 * 1024);
-			$this->load->library('MyqqFileUploader',$params);
+			//Editing a page
+			else{
 			
+				$data['currentPage'] = $pageId;
+				$data['pageDetails'] = $this->adminModel->getPage($pageId);
+				$sliderImages = explode(';', $data['pageDetails']->SliderImages);
 
-			
-			
+				//echo "No of images: ".sizeof($sliderImages);
+				
+				if($sliderImages != ''){
+					$imageNames = array();
+					foreach ($sliderImages as $image) {
+						# code...
+						$imageNames[] = explode(':', $image)[0];
+					}
+					$data['pageDetails']->SliderImages = $imageNames;
+				}
 
-			$this->load->view('admin/sidebar', $data);
-			$this->load->view('admin/addPage', $data);	
+				$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' =>1.5 * 1024 * 1024);
+				$this->load->library('MyqqFileUploader',$params);
+				
+
+				
+				
+
+				$this->load->view('admin/sidebar', $data);
+				$this->load->view('admin/addPage', $data);	
+			}
+			$this->load->view('admin/footer');
 		}
-		$this->load->view('admin/footer');
-		
+		else{
+			if($this->adminModel->updatePage($this->input->post()))
+				redirect('/dashboard/editPage/'.$pageId);
+			else
+				echo "Page Update Failed";
+		}
 	}
 
-	public function echoImage($pageId){
-
-		$sliderImage = base64_decode($this->adminModel->getSliderImage($pageId));
-		header("Content-Type: image/jpeg");
-		echo $sliderImage;
-
-		//echo "Fuck You";
-	}
-
-
-	// To display back
-	// header("Content-Type: image/jpg");
-	// echo base64_decode($encoded);
 	
 
 	public function editRooms()
@@ -127,9 +121,12 @@ class Dashboard extends CI_Controller{
 		echo "Edit rooms code!!";
 	}
 
-	public function generalSettings()
+	public function updateGeneralSettings()
 	{
-		echo "Edit General Settings here!!";
+		if($this->adminModel->updateGeneralSettings($this->input->post()))
+			redirect('dashboard');
+		else
+			echo "General Settings Update Failed";
 	}
 
 	public function uploadSliderImage()

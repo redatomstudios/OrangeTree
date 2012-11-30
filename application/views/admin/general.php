@@ -1,8 +1,8 @@
 		<h1>General Settings</h1> <!-- Replace this with each page title! -->
 		<p>Modify general website settings here</p>
-		<?= form_open_multipart() ?>
-			<label for="hotelName">Hotel Name:</label> <?= form_input(array('id' => 'hotelName')) ?> <div class="hinting">This is the name of the hotel that appears throughout the site.</div> <br />
-			<label for="hotelAddress">Hotel Address:</label> <?= form_input(array('id' => 'hotelAddress')) ?> <div class="hinting">This is the address of the hotel that will appear in the footer.</div> <br />
+		<?= form_open('dashboard/updateGeneralSettings') ?>
+			<label for="hotelName">Hotel Name:</label> <?= form_input(array('id' => 'hotelName','name' => 'hotelName', 'value' => $generalSettings['HotelName'])) ?> <div class="hinting">This is the name of the hotel that appears throughout the site.</div> <br />
+			<label for="hotelAddress">Hotel Address:</label> <?= form_input(array('id' => 'hotelAddress','name' => 'hotelAddress', 'value' => $generalSettings['HotelAddress'])) ?> <div class="hinting">This is the address of the hotel that will appear in the footer.</div> <br />
 			<input type="submit" />
 		<?= form_close() ?>
 		<?= form_open_multipart('server/logoHandler.php') ?>

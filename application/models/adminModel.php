@@ -24,12 +24,19 @@ class AdminModel extends CI_Model{
 	}
 
 
-	/*
-	*If start = 0, get full table
+	public function getGeneralSettings(){
+		# code...
+		return $this->db->get('generalsettings')->row_array();
+	}
 
-
-
-	*/
+	public function updateGeneralSettings($data){
+		# code...
+		if($this->db->update('generalsettings',array('HotelName' => $data['hotelName'], 'HotelAddress' => $data['hotelAddress'])))
+			return TRUE;
+		else
+			return FALSE;
+	}
+	
 	public function getPageNames(){
 
 		$this->db->select('Id,Title');
@@ -50,6 +57,14 @@ class AdminModel extends CI_Model{
 
 		$query = $this->db->get_where('pages',array('Id' => $Id));
 		return($query->row());
+	}
+
+	public function updatePage($data){
+		# code...
+		if($this->db->update('pages',array('Title' => $data['pageTitle'], 'PageContent' => $data['pageContent']),array('Id' => $data['pageId'])))
+			return TRUE;
+		else
+			return FALSE;
 	}
 
 	public function insertSliderImage($fileName,$pageId){
