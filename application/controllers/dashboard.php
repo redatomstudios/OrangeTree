@@ -24,9 +24,9 @@ class Dashboard extends CI_Controller{
 		$data['pageNames'] = $this->adminModel->getPageNames();
 		$data['pageId'] = 0;
 		$data['currentPage'] = 'general';
-		$this->load->view('admin_sidebar', $data);
-		$this->load->view('dashboardView', $data);
-		$this->load->view('admin_pageclose');
+		$this->load->view('admin/sidebar', $data);
+		$this->load->view('admin/general', $data);
+		$this->load->view('admin/footer');
 
 	}
 
@@ -35,7 +35,7 @@ class Dashboard extends CI_Controller{
 
 
 		if(!$this->input->post()){
-			$this->load->view('loginView');
+			$this->load->view('public/login');
 		}
 		else{
 
@@ -84,8 +84,8 @@ class Dashboard extends CI_Controller{
 			if($pageId ==0){
 				$data['currentPage'] = 'addPage';
 
-				$this->load->view('admin_sidebar', $data);
-				$this->load->view('addPage',$data);
+				$this->load->view('admin/sidebar', $data);
+				$this->load->view('admin/addPage',$data);
 			}
 
 			//Editing a page
@@ -93,10 +93,10 @@ class Dashboard extends CI_Controller{
 			
 				$data['currentPage'] = $pageId;
 				$data['pageDetails'] = $this->adminModel->getPage($pageId);
-				$this->load->view('admin_sidebar', $data);
-				$this->load->view('addPage', $data);	
+				$this->load->view('admin/sidebar', $data);
+				$this->load->view('admin/addPage', $data);	
 			}
-			$this->load->view('admin_pageclose');
+			$this->load->view('admin/footer');
 		}
 	}
 
