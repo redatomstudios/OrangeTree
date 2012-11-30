@@ -6,6 +6,7 @@
 				$title = $pageDetails->Title;
 				$template = $pageDetails->Template;
 				$pageContent = $pageDetails->PageContent;
+				$sliderImages = $pageDetails->SliderImages;
 				$mediaContent = $pageDetails->MediaContent;
 			} else {
 
@@ -25,7 +26,7 @@
 			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
 			<?= form_submit('submit','Save') ?>
 		<?= form_close() ?>
-		<?= form_open_multipart('server/slideHandler.php') ?>
+		<?= form_open_multipart('dashboard/uploadSliderImage') ?>
 			<input type="hidden" name="pageId" value="<?=$pageId?>">
 			<label for="sliderImage">Slider Images:</label> <span id="slide-uploader"></span> <div class="clearfix"></div> 
 			<div class="hinting">
@@ -43,14 +44,14 @@
 				<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>/resources/images/slider/sliderLeft.png" alt="Previous" />
 				<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>/resources/images/slider/sliderRight.png" alt="Next" />
 				<ul>
-					<?php /* foreach($sliderimage as $image) { */ ?>
-					<!-- <li><img src="" /></li> -->
-					<?php /* } */ ?>
+					<?php  foreach($sliderImages as $image) {  ?>
+					<li><img src="<?= base_url() ?>resources/images/slider/<?= $image ?>" /></li>
+					<?php  }  ?>
 					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
-					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
+					<!-- <li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
-					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
-					<li><img src="http://localhost/OrangeTree/dashboard/echoImage/<?= $pageId ?>" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li> -->
+					
 				</ul>
 			</div>
 			<div id="sliderThumbs">
@@ -62,7 +63,7 @@
 					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /><input type="button" value="remove" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /><input type="button" value="remove" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li>
-					<li><img src="http://localhost/OrangeTree/dashboard/echoImage/<?= $pageId ?>" /><input type="button" value="remove" /></li>
+					
 				</ul>
 			</div>
 			<br class="clearFix" />

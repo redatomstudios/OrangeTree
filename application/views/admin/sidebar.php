@@ -6,6 +6,7 @@
 <script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js" ></script>
 <script>
 	var siteBase = <?= base_url() ?>;
+	var siteDomain = '<?= $_SERVER['SERVER_NAME'] ?>';
 </script>
 <script src="<?= base_url() ?>resources/js/fileuploader.js"></script>
 <script src="<?= base_url() ?>resources/js/h2o.admin.js"></script>

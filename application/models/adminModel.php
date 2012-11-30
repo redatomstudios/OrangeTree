@@ -74,6 +74,16 @@ class AdminModel extends CI_Model{
 		return $query->row_array()['SliderImages'];
 	}
 
+	public function editSliderImage($fileName, $extension, $pageId)
+	{
+		# code...
+
+		if($this->db->update('pages', array('SliderImages' => 'CONCAT($fileName:$extension;)'), array('Id' => $pageId)))
+			return TRUE;
+		else
+			return FALSE;
+	}
+
 }
 
 

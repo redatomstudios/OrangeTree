@@ -101,9 +101,9 @@ jQuery(document).ready(function($){
 			// pass the dom node (ex. $(selector)[0] for jQuery users)
 			element: document.getElementById('slide-uploader'),
 			allowedExtensions: ['jpg', 'jpeg'],
-			debug: false,
+			debug: true,
 			// path to server-side upload script
-			action: siteBase + 'server/slideHandler.php'
+			action: siteBase + 'dashboard/uploadSliderImage'
 		}); 
 	}
 

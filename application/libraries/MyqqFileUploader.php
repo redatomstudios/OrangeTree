@@ -1,5 +1,6 @@
 <?php
 
+ if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 /****************************************
 Example of how to use this uploader class...
 You can uncomment the following lines (minus the require) to use these as your defaults.
@@ -21,8 +22,7 @@ echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 /******************************************/
 
 
-$uploader = new qqFileUploader(array('jpg', 'jpeg'), 1.5 * 1024 * 1024);
-$result = $uploader->handleUpload('../resources/images/slider/',FALSE,$_POST['pageId']);
+
 //print_r($result);
 
 /**
@@ -84,15 +84,17 @@ class qqUploadedFileForm {
     }
 }
 
-class qqFileUploader {
+class MyqqFileUploader {
     private $allowedExtensions = array();
     private $sizeLimit = 10485760;
     private $file;
 
-    function __construct(array $allowedExtensions = array(), $sizeLimit = 10485760){        
-        $allowedExtensions = array_map("strtolower", $allowedExtensions);
-            
-        $this->allowedExtensions = $allowedExtensions;        
+    function __construct(array $allowedExtensions = array(), $sizeLimit = 10485759){  
+
+print_r($allowedExtensions);
+
+        $allowedExtensions = array_map("strtolower", $allowedExtensions['allowedExtensions']);
+        $this->allowedExtensions = $allowedExtensions;
         $this->sizeLimit = $sizeLimit;
         
         $this->checkServerSettings();       
@@ -105,7 +107,11 @@ class qqFileUploader {
             $this->file = false; 
         }
     }
-    
+    public function testing()
+    {
+        # code...
+        echo "Test";
+    }
 	public function getName(){
 		if ($this->file)
 			return $this->file->getName();
@@ -174,7 +180,11 @@ class qqFileUploader {
         if ($this->file->save($uploadDirectory . time() . '.' . $ext)){
 
             header("Location: " . $_SERVER['SERVER_NAME'] . '');
-            redirect('dashboard/editSliderImage/'.$filename.'/'.$ext . '/' . $pageId);
+            $returnArray = array('fileName' => $filename, 'extension' => $ext);
+
+            return $returnArray;
+
+            
             //return array('success'=>true);
             /* Add code to insert into DB here */
             /* File name is $filename, extension is $ext */
