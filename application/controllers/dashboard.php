@@ -94,7 +94,8 @@ class Dashboard extends CI_Controller{
 
 			$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' =>1.5 * 1024 * 1024);
 			$this->load->library('MyqqFileUploader',$params);
-			$this->MyqqFileUploader->test();
+			
+
 			// echo "<pre>";
 			// print_r($imageNames);
 			// echo isset($imageNames) sizeof($imageNames);
