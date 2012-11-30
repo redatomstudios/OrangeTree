@@ -64,6 +64,14 @@ class Dashboard extends CI_Controller{
 	public function editPage($pageId = 0,$mid)
 	{
 		# code...
+
+
+		$data['sliderImage'] = imagecrea(base64_decode($this->adminModel->getSliderImage($pageId)));
+				 //header("Content-Type: image/jpg");
+				// echo base64_decode($data['sliderImage']);
+
+
+		//Adding a new page
 		if(!$_POST){
 
 			$this->load->model('adminModel');
@@ -76,7 +84,10 @@ class Dashboard extends CI_Controller{
 				$this->load->view('admin_sidebar', $data);
 				$this->load->view('addPage');
 			}
+
+			//Editing a page
 			else{
+			
 				$data['currentPage'] = '' . $id;
 				$data['pageDetails'] = $this->adminModel->getPage($id);
 				$this->load->view('admin_sidebar', $data);
@@ -86,10 +97,9 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
-	public function addPage(){
-
-		
-
+	public function echoImage($sliderImage){
+		header("Content-Type: image/jpg");
+		echo base64_decode($sliderImage);
 	}
 
 
@@ -110,7 +120,10 @@ class Dashboard extends CI_Controller{
 			$encoded = CHUNK_SPLIT(BASE64_ENCODE($file_content)); 
 
 			if($this->adminModel->insertSliderImage($pageId,$encoded)){
-				echo "Slider Images uploaded Successfullt!!";
+				header("Content-Type: image/jpeg");
+				echo base64_decode($encoded);
+
+				//echo "Slider Images uploaded Successfullt!!";
 			}
 			else
 				echo "Upload failed!!";
@@ -123,6 +136,9 @@ class Dashboard extends CI_Controller{
 		//echo $data;
 
 	}
+
+
+
 	public function editRooms()
 	{
 		# code...

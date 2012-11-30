@@ -39,6 +39,7 @@
 					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
+					<li><img src="dashboard/echoImage/<?= $sliderImage ?>"></li>
 				</ul>
 			</div>
 			<div id="sliderThumbs">

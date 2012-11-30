@@ -63,6 +63,15 @@ class AdminModel extends CI_Model{
 		// echo $query;
 	}
 
+	public function getSliderImage($pageId){
+		# code...
+
+		$this->db->select('SliderImages');
+		$query = $this->db->get_where('pages', array('Id' => $pageId));
+		//echo $query->row_array()['SliderImages'];
+		return $query->row_array()['SliderImages'];
+	}
+
 }
 
 
