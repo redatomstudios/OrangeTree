@@ -29,7 +29,7 @@
 				$index = 0; 
 				?>
 				<?php foreach($pageNames as $pageName) { $index++; ?> 
-				<li<?= isset($_GET['mid']) && $_GET['mid'] == $index ? ' class="current"' : '' ?>><a href="<?= base_url() ?>dashboard/editPage/<?php echo $pageName['Id']; ?>/<?= $index ?>"><?php echo $pageName['Title']; ?></a></li>
+				<li<?= $pageId == $pageName['Id'] ? ' class="current"' : '' ?>><a href="<?= base_url() ?>dashboard/editPage/<?php echo $pageName['Id']; ?>"><?= $pageName['Title'] ?></a></li>
 				<?php  }  ?>
 
 				<li class="spacer"></li>
