@@ -61,7 +61,7 @@ class Dashboard extends CI_Controller{
 	}
 
 
-	public function editPage($pageId = 0,$mid)
+	public function editPage($pageId = 0)
 	{
 		# code...
 
@@ -91,7 +91,7 @@ class Dashboard extends CI_Controller{
 				$data['currentPage'] = $pageId;
 				$data['pageDetails'] = $this->adminModel->getPage($pageId);
 				$this->load->view('admin_sidebar', $data);
-				$this->load->view('addPage',$data);	
+				$this->load->view('addPage', $data);	
 			}
 			$this->load->view('admin_pageclose');
 		}

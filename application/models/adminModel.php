@@ -54,7 +54,7 @@ class AdminModel extends CI_Model{
 
 	public function insertSliderImage($pageId,$encodedImage){
 		
-		if($this->db->update('pages', array('SliderImages' => $encodedImage), array('id' => $pageId)))
+		if($this->db->update('pages', array('SliderImages' => $encodedImage), array('Id' => $pageId)))
 			return true;
 		else
 			return false;
@@ -68,7 +68,6 @@ class AdminModel extends CI_Model{
 
 		$this->db->select('SliderImages');
 		$query = $this->db->get_where('pages', array('Id' => $pageId));
-		//echo $query->row_array()['SliderImages'];
 		return $query->row_array()['SliderImages'];
 	}
 
