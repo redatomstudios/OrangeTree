@@ -20,6 +20,7 @@
 		?>
 		<?= form_open_multipart('dashboard/addPage') ?>
 			<label for="pageTitle">Page Title:</label> <?= form_input(array('id' => 'pageTitle', 'value' => $title)) ?> <div class="hinting">This is the title of the pages that appears in the sidebar and the browser.</div> <br />
+			<?= form_submit(array('name' => 'deletePage', 'id' => 'delPage'), 'Delete Page') ?>
 			<label for="pageTemplate">Page Template:</label> <?= form_dropdown('pageTemplate', array('Default Template'), 'Default Template', 'id = "pageTemplate" name = "pageTemplate"') ?> <div class="hinting">Select a template to arrange according to. This will always be Default Template.</div> <br />
 			<label for="pageContent">Page Content:</label> <?= form_textarea(array('id' => 'pageContent', 'name' => 'pageContent', 'value' => $pageContent)) ?><div class="hinting">Enter the page text here</div>
 			<label for="mediaContent">Media Content:</label> <?= form_dropdown('mediaContent', array('None', 'Room Prices'), 'Room Prices', 'id = "mediaContent" name = "mediaContent"') ?><div class="hinting">Special content such as tables etc.</div>
