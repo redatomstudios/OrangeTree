@@ -399,10 +399,10 @@ qq.FileUploaderBasic.prototype = {
     _onComplete: function(id, fileName, result){
         this._filesInProgress--;                 
         if (result.error){
-            $('.qq-upload-list').show();
+            //$('.qq-upload-list').show();
             this._options.showMessage(result.error);
         }
-        //location.reload(true);
+        location.reload(true);
     },
     _onCancel: function(id, fileName){
         this._filesInProgress--;        
