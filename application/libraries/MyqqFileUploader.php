@@ -91,7 +91,7 @@ class MyqqFileUploader {
 
     function __construct(array $allowedExtensions = array(), $sizeLimit = 10485759){  
 
-print_r($allowedExtensions);
+    //print_r($allowedExtensions);
 
         $allowedExtensions = array_map("strtolower", $allowedExtensions['allowedExtensions']);
         $this->allowedExtensions = $allowedExtensions;
@@ -141,9 +141,9 @@ print_r($allowedExtensions);
     /**
      * Returns array('success'=>true) or array('error'=>'error message')
      */
-    function handleUpload($uploadDirectory, $replaceOldFile = FALSE, $pageId){
+    function handleUpload($uploadDirectory, $replaceOldFile = FALSE, $pageId = 1){
         if (!is_writable($uploadDirectory)){
-            return array('error' => "Server error. Upload directory isn't writable.");
+            return array('error' => "Server error. Upload directory isn't writable: " . $uploadDirectory);
         }
         
         if (!$this->file){

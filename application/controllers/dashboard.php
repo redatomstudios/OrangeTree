@@ -102,8 +102,8 @@ class Dashboard extends CI_Controller{
 			// print_r($data);
 			
 
-			// $this->load->view('admin/sidebar', $data);
-			// $this->load->view('admin/addPage', $data);	
+			$this->load->view('admin/sidebar', $data);
+			$this->load->view('admin/addPage', $data);	
 		}
 		$this->load->view('admin/footer');
 		
@@ -136,13 +136,13 @@ class Dashboard extends CI_Controller{
 
 	public function uploadSliderImage()
 	{
-		# code...
-		$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' =>1.5 * 1024 * 1024);
-		$this->load->library('MyqqFileUploader',$params);
+		$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' => 1.5 * 1024 * 1024);
+		$this->load->library('MyqqFileUploader', $params, 'File');
 		
-		
-		$returnArray = $this->MyqqFileUploader->handleUpload('../resources/images/slider/',FALSE,$_POST['pageId']);
-		echo $returnArray['fileName'] ;//. " " . $extension . " " . $pageId;
+		print_r($this->input->post());
+		/*$returnArray = $this->MyqqFileUploader->*/
+		$returnArray = $this->File->handleUpload('./resources/images/slider/', FALSE/*, $_POST['pageId']*/);
+		//echo $returnArray['fileName'] ;//. " " . $extension . " " . $pageId;
 		//$this->adminModel->editSliderImage($fileName, $extension, $pageId);
 	}
 }

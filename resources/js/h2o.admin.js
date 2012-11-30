@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 			// pass the dom node (ex. $(selector)[0] for jQuery users)
 			element: document.getElementById('slide-uploader'),
 			allowedExtensions: ['jpg', 'jpeg'],
-			debug: true,
+			debug: false,
 			// path to server-side upload script
 			action: siteBase + 'dashboard/uploadSliderImage'
 		}); 
