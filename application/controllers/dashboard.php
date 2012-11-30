@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller{
 	
 		parent::__construct();
 
-		if($this->session->userdata('name') == FALSE && $this->uri->uri_string() != 'dashboard/login'){
+		if($this->session->userdata('name') == FALSE && $this->uri->uri_string() != 'dashboard/login' && $this->uri->uri_string() != 'dashboard/echoImage'){
 			redirect('/dashboard/login');
 		}
 
@@ -66,7 +66,7 @@ class Dashboard extends CI_Controller{
 		# code...
 
 
-		$data['sliderImage'] = base64_decode($this->adminModel->getSliderImage($pageId));
+		//$data['sliderImage'] = base64_decode($this->adminModel->getSliderImage($pageId));
 				 //header("Content-Type: image/jpg");
 				// echo base64_decode($data['sliderImage']);
 
@@ -97,9 +97,12 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
-	public function ecgoImage($sliderImage){
-		header("Content-Type: image/jpg");
+	public function echoImage($pageId){
+		$sliderImage = base64_decode($this->adminModel->getSliderImage($pageId));
+		header("Content-Type: image/jpeg");
 		echo $sliderImage;
+
+		//echo "Fuck You";
 	}
 
 

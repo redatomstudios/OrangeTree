@@ -39,7 +39,7 @@
 					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /></li>
-					<li><img src="dashboard/echoImage/<?= $sliderImage ?>"></li>
+					<li><img src="http://localhost/OrangeTree/dashboard/echoImage/<?= $pageId ?>" /></li>
 				</ul>
 			</div>
 			<div id="sliderThumbs">
@@ -51,6 +51,7 @@
 					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /><input type="button" value="remove" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /><input type="button" value="remove" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li>
+					<li><img src="http://localhost/OrangeTree/dashboard/echoImage/<?= $pageId ?>" /><input type="button" value="remove" /></li>
 				</ul>
 			</div>
 			<br class="clearFix" />
