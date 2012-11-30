@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2012 at 10:53 PM
+-- Generation Time: Nov 30, 2012 at 11:32 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -54,9 +54,15 @@ CREATE TABLE IF NOT EXISTS `generalsettings` (
   `Id` int(1) NOT NULL AUTO_INCREMENT,
   `HotelName` varchar(100) NOT NULL,
   `HotelAddress` text NOT NULL,
-  `Logo` varchar(100) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `generalsettings`
+--
+
+INSERT INTO `generalsettings` (`Id`, `HotelName`, `HotelAddress`) VALUES
+(1, 'The Orange Tree Hotels', 'The Sheep Street, Stow-on-the-Wold, Gloucestershire GL54 1AU');
 
 -- --------------------------------------------------------
 
@@ -66,7 +72,6 @@ CREATE TABLE IF NOT EXISTS `generalsettings` (
 
 CREATE TABLE IF NOT EXISTS `pages` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) NOT NULL,
   `Title` varchar(500) NOT NULL,
   `Template` text NOT NULL,
   `SliderImages` varchar(100) NOT NULL,
@@ -79,9 +84,9 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`Id`, `Name`, `Title`, `Template`, `SliderImages`, `PageContent`, `MediaContent`) VALUES
-(1, 'About Page', 'About Page', '<div>\r\nThis is a sample template\r\n</div>', '', 'This is the page content', ''),
-(2, 'Contact Us', 'Contact Us', 'Tintu Wilson\r\nBangalore', '', 'This is the contents', 'None for now');
+INSERT INTO `pages` (`Id`, `Title`, `Template`, `SliderImages`, `PageContent`, `MediaContent`) VALUES
+(1, 'About Pages', '<div>\r\nThis is a sample template\r\n</div>', '', 'This is the page contents!!', ''),
+(2, 'Contact Us', 'Tintu Wilson\r\nBangalore', '', 'This is the contents', 'None for now');
 
 -- --------------------------------------------------------
 
