@@ -52,15 +52,17 @@ class AdminModel extends CI_Model{
 		return($query->row());
 	}
 
-	public function insertSliderImage($pageId,$encodedImage){
+	public function insertSliderImage($fileName,$pageId){
 		
-		if($this->db->update('pages', array('SliderImages' => $encodedImage), array('id' => $pageId))){
-
-			//echo $this->db->last_query();
-			return true;
+		
+		$this->db->set('SliderImages','CONCAT("'.$fileName.';",pages.SliderImages)', FALSE );
+		$this->db->where(array('Id' => $pageId));	
+		$res = $this->db->update('pages');
+		if($res){
+			return TRUE;
 		}
 		else
-			return false;
+			return FALSE;
 
 		// $query = "update pages set sliderimages = '$encodedImage' where id = $pageId";
 		// echo $query;
@@ -72,16 +74,6 @@ class AdminModel extends CI_Model{
 		$this->db->select('SliderImages');
 		$query = $this->db->get_where('pages', array('Id' => $pageId));
 		return $query->row_array()['SliderImages'];
-	}
-
-	public function editSliderImage($fileName, $extension, $pageId)
-	{
-		# code...
-
-		if($this->db->update('pages', array('SliderImages' => 'CONCAT($fileName:$extension;)'), array('Id' => $pageId)))
-			return TRUE;
-		else
-			return FALSE;
 	}
 
 }

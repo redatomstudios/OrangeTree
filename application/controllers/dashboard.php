@@ -82,6 +82,7 @@ class Dashboard extends CI_Controller{
 			$data['pageDetails'] = $this->adminModel->getPage($pageId);
 			$sliderImages = explode(';', $data['pageDetails']->SliderImages);
 
+			//echo "No of images: ".sizeof($sliderImages);
 			
 			if($sliderImages != ''){
 				$imageNames = array();
@@ -96,10 +97,7 @@ class Dashboard extends CI_Controller{
 			$this->load->library('MyqqFileUploader',$params);
 			
 
-			// echo "<pre>";
-			// print_r($imageNames);
-			// echo isset($imageNames) sizeof($imageNames);
-			// print_r($data);
+			
 			
 
 			$this->load->view('admin/sidebar', $data);
@@ -136,14 +134,31 @@ class Dashboard extends CI_Controller{
 
 	public function uploadSliderImage()
 	{
-		$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' => 1.5 * 1024 * 1024);
-		$this->load->library('MyqqFileUploader', $params, 'File');
 		
-		print_r($this->input->post());
-		/*$returnArray = $this->MyqqFileUploader->*/
-		$returnArray = $this->File->handleUpload('./resources/images/slider/', FALSE/*, $_POST['pageId']*/);
-		//echo $returnArray['fileName'] ;//. " " . $extension . " " . $pageId;
-		//$this->adminModel->editSliderImage($fileName, $extension, $pageId);
+		$config['upload_path']     = './resources/images/slider/';
+        $config['allowed_types']   = 'jpg|jpeg';
+        $config['max_size']        = '2048';
+        $config['max_width']       = '1600';
+        $config['max_height']      = '1200';
+        $config['overwrite']       = 'TRUE';
+        $config['file_name']       = 'img'.time().'.jpg';
+        
+        $this->load->library('upload', $config);
+        if($this->upload->do_upload('sliderImage')){
+        	//echo '<img src="'.base_url().'resources/images/slider/'.$config['file_name'].'" />';
+        	if($this->adminModel->insertSliderImage($config['file_name'], $this->input->post('pageId'))){
+        		redirect('dashboard/editPage/'.$this->input->post('pageId'));
+        	}
+        	else
+        		echo "Database not updated";
+        }
+        else{
+			echo "Image not updated";
+        }
+		
+
+		
+		
 	}
 }
 

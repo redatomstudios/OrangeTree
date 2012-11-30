@@ -28,7 +28,7 @@
 		<?= form_close() ?>
 		<?= form_open_multipart('dashboard/uploadSliderImage') ?>
 			<input type="hidden" name="pageId" value="<?=$pageId?>">
-			<label for="sliderImage">Slider Images:</label> <span id="slide-uploader"></span> <div class="clearfix"></div> 
+			<label for="sliderImage">Slider Images:</label> <span><?= form_upload('sliderImage')?></span> <div class="clearfix"></div> 
 			<div class="hinting">
 				Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> 
 				If no images are uploaded, the slider will not be displayed on the page. <br /> 
@@ -37,16 +37,19 @@
 					CAUTION: ONLY UPLOAD JPEG/JPG IMAGES OF DIMENSIONS 978x400px.
 				</span>
 			</div>
+			<input type="submit" value="Submit" />
 		<?= form_close() ?>
-		<?= form_open_multipart('dashboard/uploadSliderImage') ?>
+		<?= form_open_multipart('dashboard/deleteSliderImage') ?>
 			<input type="hidden" name="pageId" value="<?=$pageId?>">
 			<div id='sliderPreview'>
 				<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>/resources/images/slider/sliderLeft.png" alt="Previous" />
 				<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>/resources/images/slider/sliderRight.png" alt="Next" />
 				<ul>
-					<?php  foreach($sliderImages as $image) {  ?>
+					<?php  foreach($sliderImages as $image) {
+						if($image != ''){
+					  ?>
 					<li><img src="<?= base_url() ?>resources/images/slider/<?= $image ?>" /></li>
-					<?php  }  ?>
+					<?php }  }  ?>
 					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
 					<!-- <li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /></li>

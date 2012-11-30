@@ -402,7 +402,7 @@ qq.FileUploaderBasic.prototype = {
             //$('.qq-upload-list').show();
             this._options.showMessage(result.error);
         }
-        location.reload(true);
+       // location.reload(true);
     },
     _onCancel: function(id, fileName){
         this._filesInProgress--;        

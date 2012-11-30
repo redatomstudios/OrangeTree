@@ -90,7 +90,7 @@ jQuery(document).ready(function($){
 			// pass the dom node (ex. $(selector)[0] for jQuery users)
 			element: document.getElementById('file-uploader'),
 			allowedExtensions: ['png'],
-			debug: false,
+			debug: true,
 			// path to server-side upload script
 			action: siteBase + 'server/logoHandler.php'
 		}); 
