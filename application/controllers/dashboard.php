@@ -66,7 +66,7 @@ class Dashboard extends CI_Controller{
 		# code...
 
 
-		$data['sliderImage'] = imagecrea(base64_decode($this->adminModel->getSliderImage($pageId)));
+		$data['sliderImage'] = base64_decode($this->adminModel->getSliderImage($pageId));
 				 //header("Content-Type: image/jpg");
 				// echo base64_decode($data['sliderImage']);
 
@@ -78,7 +78,7 @@ class Dashboard extends CI_Controller{
 
 			$data['pageId'] = $pageId;
 			$data['pageNames'] = $this->adminModel->getPageNames();
-			if($id ==0){
+			if($pageId ==0){
 				$data['currentPage'] = 'addPage';
 
 				$this->load->view('admin_sidebar', $data);
@@ -88,8 +88,8 @@ class Dashboard extends CI_Controller{
 			//Editing a page
 			else{
 			
-				$data['currentPage'] = '' . $id;
-				$data['pageDetails'] = $this->adminModel->getPage($id);
+				$data['currentPage'] = $pageId;
+				$data['pageDetails'] = $this->adminModel->getPage($pageId);
 				$this->load->view('admin_sidebar', $data);
 				$this->load->view('addPage',$data);	
 			}
@@ -97,9 +97,9 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
-	public function echoImage($sliderImage){
+	public function ecgoImage($sliderImage){
 		header("Content-Type: image/jpg");
-		echo base64_decode($sliderImage);
+		echo $sliderImage;
 	}
 
 
