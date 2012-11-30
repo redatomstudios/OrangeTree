@@ -26,6 +26,7 @@
 			<?= form_submit('submit','Save') ?>
 		<?= form_close() ?>
 		<?= form_open_multipart('server/slideHandler.php') ?>
+			<input type="hidden" name="pageId" value="<?=$pageId?>">
 			<label for="sliderImage">Slider Images:</label> <span id="slide-uploader"></span> <div class="clearfix"></div> 
 			<div class="hinting">
 				Upload the slider images here. Click the button below each thumbnail to delete that slide. <br /> 
