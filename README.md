@@ -6,7 +6,8 @@ General Settings View:
 
 Add/Edit Page View:
   - Enable Editing
-  - Work out problems with Slider graphics management
+  - Add uploaded slides to DB
+  - Enable slide deletion
 
 Media Content:
   - Add price table
