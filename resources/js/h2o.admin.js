@@ -92,7 +92,7 @@ jQuery(document).ready(function($){
 			allowedExtensions: ['png'],
 			debug: false,
 			// path to server-side upload script
-			action: './server/logoHandler.php'
+			action: siteBase + 'server/logoHandler.php'
 		}); 
 	}
 
@@ -101,9 +101,9 @@ jQuery(document).ready(function($){
 			// pass the dom node (ex. $(selector)[0] for jQuery users)
 			element: document.getElementById('slide-uploader'),
 			allowedExtensions: ['jpg', 'jpeg'],
-			debug: true,
+			debug: false,
 			// path to server-side upload script
-			action: './server/slideHandler.php'
+			action: siteBase + 'server/slideHandler.php'
 		}); 
 	}
 

@@ -4,6 +4,9 @@
 <link rel="stylesheet" href="<?= base_url() ?>resources/css/fileuploader.css" />
 <link rel="stylesheet" href="<?= base_url() ?>resources/css/admin.css" />
 <script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js" ></script>
+<script>
+	var siteBase = <?= base_url() ?>;
+</script>
 <script src="<?= base_url() ?>resources/js/fileuploader.js"></script>
 <script src="<?= base_url() ?>resources/js/h2o.admin.js"></script>
 </head>
@@ -15,7 +18,7 @@
 			<ul>
 				<li<?= $currentPage == 'general' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/', 'General Settings'); ?></li>
 				<li<?= $currentPage == 'addPage' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/editPage/', 'Add New Page'); ?></li>
-				<li><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
+				<li<?= $currentPage == 'editRooms' ? ' class="current"' : '' ?>><?php echo anchor('/dashboard/editRooms', 'Edit Room Pricing'); ?></li>
 				<li><?php echo anchor('/dashboard/editRooms', 'Media Content'); ?></li>
 				<li class="spacer"></li>
 				<?php 

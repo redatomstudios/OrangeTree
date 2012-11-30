@@ -170,8 +170,10 @@ class qqFileUploader {
             }
         }
         
-        if ($this->file->save($uploadDirectory . 'Logo.png')){
+        if ($this->file->save($uploadDirectory . time() . '.' . $ext)){
             return array('success'=>true);
+            /* Add code to insert into DB here */
+            /* File name is $filename, extension is $ext */
         } else {
             return array('error'=> 'Could not save uploaded file.' .
                 'The upload was cancelled, or server error encountered');

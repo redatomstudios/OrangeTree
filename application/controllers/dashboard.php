@@ -143,17 +143,13 @@ class Dashboard extends CI_Controller{
 
 	}
 
-
-
 	public function editRooms()
 	{
-		# code...
 		echo "Edit rooms code!!";
 	}
 
 	public function generalSettings()
 	{
-		# code...
 		echo "Edit General Settings here!!";
 	}
 }
