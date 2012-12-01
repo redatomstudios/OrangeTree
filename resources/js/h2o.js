@@ -26,6 +26,8 @@ var setupSlider = function() {
 	
 		if(totalWidth) {
 			$('div#slider ul').width(totalWidth).css({left: -slideWidth*(currentSlide - 1) + 'px'});
+			$('div#slider').prepend('<img class="slideControl" id="slideControlLeft" src="' + siteBase + 'resources/images/slider/sliderLeft.png" alt="Previous" />' + 
+			'<img class="slideControl" id="slideControlRight" src="' + siteBase + 'resources/images/slider/sliderRight.png" alt="Next" />')
 			gotoSlide(currentSlide);
 		} else {
 			setTimeout(setupSlider, 100);
@@ -54,10 +56,9 @@ var gotoSlide = function(slide) {
 
 jQuery(document).ready(function($){
 	setupSlider();
-	$('#slideControlRight').click(function(){
+	$('#slider').on('click', '#slideControlRight', function(){
 		gotoSlide(++currentSlide);
-	});
-	$('#slideControlLeft').click(function(){
+	}).on('click', '#slideControlLeft', function(){
 		gotoSlide(--currentSlide);
 	});
 });

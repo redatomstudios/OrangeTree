@@ -43,8 +43,6 @@
 		<?= form_open_multipart('dashboard/deleteSliderImage') ?>
 			<input type="hidden" name="pageId" value="<?=$pageId?>">
 			<div id='sliderPreview'>
-				<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>/resources/images/slider/sliderLeft.png" alt="Previous" />
-				<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>/resources/images/slider/sliderRight.png" alt="Next" />
 				<ul>
 					<?php  foreach($sliderImages as $image) {
 						if($image != ''){

@@ -3,6 +3,9 @@
 <head>
 	<link rel="stylesheet" href="<?= base_url() ?>resources/css/main.css" type="text/css" media="screen">
 	<script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js"></script>
+	<script>
+		var siteBase = <?= base_url() ?>;
+	</script>
 	<script src="<?= base_url() ?>resources/js/h2o.js"></script>
 
 	<title><?= $Title . ' :: ' . ($HotelName ? $HotelName : '')?></title>
@@ -13,8 +16,6 @@
 </div>
 <div class="wrapper">
 	<div id="slider">
-		<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>resources/images/slider/sliderLeft.png" alt="Previous" />
-		<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>resources/images/slider/sliderRight.png" alt="Next" />
 		<ul>
 		<?php  foreach($SliderImages as $image) {
 			if($image != ''){

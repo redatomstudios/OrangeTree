@@ -93,9 +93,8 @@ div#slider {
 	height: 400px;
 	width: 100%;
 	overflow: hidden;
-	margin: 0 0 0 -15px;
 	text-align: center;
-	padding: 15px;
+	padding: 15px 0;
 	position: relative;
 }
 
@@ -130,7 +129,6 @@ div#slider ul {
 
 div#slider ul li {
 	float: left;
-	margin: 0 15px;
 	height: 400px;
 	width: 978px;
 }

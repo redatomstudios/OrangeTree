@@ -3,7 +3,6 @@ OrangeTree
 
 Add/Edit Page View:
   - Enable slide deletion
-  - Manage single slides
   - Delete Page
 
 Media Content:
@@ -14,6 +13,3 @@ Edit Room Pricing
 
 Page Parsing to View
   - Parse {{{}}}
-  - $HotelName
-  - $HotelAddress
-  - $Logo
