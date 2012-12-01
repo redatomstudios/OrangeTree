@@ -17,5 +17,9 @@
 			</ul>
 		</p>
 
+		<?php
+		echo $HotelName;
+		?>
+
 	</body>
 </html>

@@ -31,7 +31,7 @@ class AdminModel extends CI_Model{
 
 	public function updateGeneralSettings($data){
 		# code...
-		if($this->db->update('generalsettings',array('HotelName' => $data['hotelName'], 'HotelAddress' => $data['hotelAddress'])))
+		if($this->db->update('generalsettings', array('HotelName' => $data['hotelName'], 'HotelAddress' => $data['hotelAddress'])))
 			return TRUE;
 		else
 			return FALSE;
@@ -55,13 +55,13 @@ class AdminModel extends CI_Model{
 
 	public function getPage($Id){
 
-		$query = $this->db->get_where('pages',array('Id' => $Id));
-		return($query->row());
+		$query = $this->db->get_where('pages', array('Id' => $Id));
+		return($query->row_array());
 	}
 
 	public function updatePage($data){
 		# code...
-		if($this->db->update('pages',array('Title' => $data['pageTitle'], 'PageContent' => $data['pageContent']),array('Id' => $data['pageId'])))
+		if($this->db->update('pages', array('Title' => $data['pageTitle'], 'PageContent' => $data['pageContent']),array('Id' => $data['pageId'])))
 			return TRUE;
 		else
 			return FALSE;
@@ -70,7 +70,7 @@ class AdminModel extends CI_Model{
 	public function insertSliderImage($fileName,$pageId){
 		
 		
-		$this->db->set('SliderImages','CONCAT("'.$fileName.';",pages.SliderImages)', FALSE );
+		$this->db->set('SliderImages', 'CONCAT("'.$fileName.';", pages.SliderImages)', FALSE );
 		$this->db->where(array('Id' => $pageId));	
 		$res = $this->db->update('pages');
 		if($res){

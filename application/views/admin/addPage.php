@@ -3,11 +3,11 @@
 
 		<?php
 			if(isset($pageDetails)) {
-				$title = $pageDetails->Title;
-				$template = $pageDetails->Template;
-				$pageContent = $pageDetails->PageContent;
-				$sliderImages = $pageDetails->SliderImages;
-				$mediaContent = $pageDetails->MediaContent;
+				$title = $pageDetails['Title'];
+				$template = $pageDetails['Template'];
+				$pageContent = $pageDetails['PageContent'];
+				$sliderImages = $pageDetails['SliderImages'];
+				$mediaContent = $pageDetails['MediaContent'];
 			} else {
 
 				$title = '';
@@ -60,13 +60,16 @@
 			</div>
 			<div id="sliderThumbs">
 				<ul>
-					<?php /* foreach($sliderimage as $image) { */ ?>
-					<!-- <li style="background: url('<?php /* image url */ ?>) center center no-repeat; background-size: 122px 50px;"><img src="" /></li> -->
-					<?php /* } */ ?>
+					<?php  foreach($sliderImages as $image) {
+						if($image != ''){
+					  ?>
+					<li><img src="<?= base_url() ?>resources/images/slider/<?= $image ?>" /></li>
+					<?php }  }  ?>
+					
 					<!-- The following LIs are just for testing! Remove these and use the ones above. -->
-					<li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /><input type="button" value="remove" /></li>
+					<!-- <li><img src="<?= base_url() ?>resources/images/slider/interior.jpg" /><input type="button" value="remove" /></li>
 					<li><img src="<?= base_url() ?>resources/images/slider/exterior.jpg" /><input type="button" value="remove" /></li>
-					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li>
+					<li><img src="<?= base_url() ?>resources/images/slider/conference.jpg" /><input type="button" value="remove" /></li> -->
 					
 				</ul>
 			</div>

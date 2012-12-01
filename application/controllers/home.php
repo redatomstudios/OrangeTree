@@ -27,8 +27,11 @@ class Home extends CI_Controller {
 		$this->load->model('adminModel');
 
 		$data = $this->adminModel->getPage($pageId);
-		$sliderImages = explode(';', $data->SliderImages);
+		$sliderImages = explode(';', $data['SliderImages']);
 
+		$genSettings = $this->adminModel->getGeneralSettings();
+		$data['HotelName'] = $genSettings['HotelName'];
+		$data['HotelAddress'] = $genSettings['HotelAddress'];
 		//echo "No of images: ".sizeof($sliderImages);
 		
 		if($sliderImages != ''){
@@ -37,7 +40,7 @@ class Home extends CI_Controller {
 				# code...
 				$imageNames[] = explode(':', $image)[0];
 			}
-			$data->SliderImages = $imageNames;
+			$data['SliderImages'] = $imageNames;
 		}
 		$this->load->view('public\template',$data);
 	}

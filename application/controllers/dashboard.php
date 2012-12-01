@@ -73,7 +73,7 @@ class Dashboard extends CI_Controller{
 			if($pageId ==0){
 				$data['currentPage'] = 'addPage';
 				$this->load->view('admin/sidebar', $data);
-				$this->load->view('admin/addPage',$data);
+				$this->load->view('admin/addPage', $data);
 			}
 
 			//Editing a page
@@ -81,7 +81,7 @@ class Dashboard extends CI_Controller{
 			
 				$data['currentPage'] = $pageId;
 				$data['pageDetails'] = $this->adminModel->getPage($pageId);
-				$sliderImages = explode(';', $data['pageDetails']->SliderImages);
+				$sliderImages = explode(';', $data['pageDetails']['SliderImages']);
 
 				//echo "No of images: ".sizeof($sliderImages);
 				
@@ -91,14 +91,9 @@ class Dashboard extends CI_Controller{
 						# code...
 						$imageNames[] = explode(':', $image)[0];
 					}
-					$data['pageDetails']->SliderImages = $imageNames;
+					$data['pageDetails']['SliderImages'] = $imageNames;
 				}
 
-				$params = array('allowedExtensions' => array('jpg', 'jpeg'), 'sizeLimit' =>1.5 * 1024 * 1024);
-				$this->load->library('MyqqFileUploader',$params);
-				
-
-				
 				
 
 				$this->load->view('admin/sidebar', $data);
