@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="logoWrapper">
-	<img id="logo" src="<?= ($Logo ? $Logo : '') ?>">
+	<img id="logo" src="/OrangeTree//resources/branding/Logo.png">
 </div>
 <div class="wrapper">
 	<div id="slider">

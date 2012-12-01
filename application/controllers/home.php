@@ -42,7 +42,7 @@ class Home extends CI_Controller {
 			}
 			$data['SliderImages'] = $imageNames;
 		}
-		$this->load->view('public\template',$data);
+		$this->load->view('public\public',$data);
 	}
 
 	
