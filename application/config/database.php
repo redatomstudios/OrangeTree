@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'orangetree';
+$db['default']['hostname'] = 'mysql1069.servage.net';
+$db['default']['username'] = 'orangetreehotel';
+$db['default']['password'] = 'Vine6345asd';
+$db['default']['database'] = 'orangetreehotel';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -88,7 +88,8 @@ class AdminModel extends CI_Model{
 
 		$this->db->select('SliderImages');
 		$query = $this->db->get_where('pages', array('Id' => $pageId));
-		return $query->row_array()['SliderImages'];
+		$v = $query->row_array();
+		return $v['SliderImages'];
 	}
 
 }

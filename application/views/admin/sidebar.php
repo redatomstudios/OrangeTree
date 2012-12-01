@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="<?= base_url() ?>resources/css/admin.css" />
 <script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js" ></script>
 <script>
-	var siteBase = <?= base_url() ?>;
+	var siteBase = '<?= base_url() ?>';
 	var siteDomain = '<?= $_SERVER['SERVER_NAME'] ?>';
 </script>
 <script src="<?= base_url() ?>resources/js/fileuploader.js"></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="sidebar">
-		<img src="<?= base_url() ?>/resources/branding/Logo.png" style="width: 100%;" />
+		<img src="<?= base_url() ?>resources/branding/Logo.png" style="width: 100%;" />
 		
 		<nav>
 			<ul>

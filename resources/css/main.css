@@ -38,13 +38,9 @@ table {
 
 /* End Reset */
 
-a {
+a, a:visited, a:active, a:hover {
 	text-decoration: none;
 	color: inherit;
-}
-
-a:hover {
-	text-shadow: 0 1px 1px #999;
 }
 
 p {
@@ -52,6 +48,24 @@ p {
 }
 
 strong {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2.5em;
+	margin: 20px 0;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 20px 0;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1.1em;
+	margin: 10px 0;
 	font-weight: bold;
 }
 
@@ -146,12 +160,12 @@ div#sidebar nav li {
 	font-weight: bold;
 }
 
-div#sidebar nav li.selected {
+div#sidebar nav li.current {
 	background: #000;
 	color: #FFF;
 }
 
-div#sidebar nav li:not(.selected):hover {
+div#sidebar nav li:not(.current):hover {
 	background: #EEE;
 }
 

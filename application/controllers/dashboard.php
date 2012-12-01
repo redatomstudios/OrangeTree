@@ -89,7 +89,8 @@ class Dashboard extends CI_Controller{
 					$imageNames = array();
 					foreach ($sliderImages as $image) {
 						# code...
-						$imageNames[] = explode(':', $image)[0];
+						$v = explode(':', $image);
+						$imageNames[] = $v[0];
 					}
 					$data['pageDetails']['SliderImages'] = $imageNames;
 				}

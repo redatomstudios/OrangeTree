@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>resources/css/main.css" type="text/css" media="screen">
 	<script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js"></script>
 	<script>
-		var siteBase = <?= base_url() ?>;
+		var siteBase = '<?= base_url() ?>';
 	</script>
 	<script src="<?= base_url() ?>resources/js/h2o.js"></script>
 
@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="logoWrapper">
-	<img id="logo" src="/OrangeTree//resources/branding/Logo.png">
+	<img id="logo" src="/resources/branding/Logo.png">
 </div>
 <div class="wrapper">
 	<div id="slider">
@@ -30,13 +30,9 @@
 		<div id="sidebar">
 			<nav>
 				<ul>
-				<li class="selected"><a href="">Home</a></li>
-				<li><a href="">About us</a></li>
-				<li><a href="">Our Rooms and Rates</a></li>
-				<li><a href="">Conservatory Restaurant</a></li>
-				<li><a href="">La Brasserie</a></li>
-				<li><a href="">The Gigot Bar</a></li>
-				<li><a href="">How to find us</a></li>
+					<?php foreach($pageNames as $pageName) { ?> 
+					<li<?= $pageId == $pageName['Id'] ? ' class="current"' : '' ?>><a href="<?= base_url() ?>home/index/<?php echo $pageName['Id']; ?>"><?= $pageName['Title'] ?></a></li>
+					<?php  }  ?>
 				</ul>
 			</nav>
 		</div>

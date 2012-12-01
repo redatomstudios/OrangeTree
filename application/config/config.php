@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '/OrangeTree/';
+$config['base_url']	= '/';
 
 /*
 |--------------------------------------------------------------------------

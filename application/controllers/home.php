@@ -17,12 +17,38 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($pageId = 1)
 	{
-		$this->load->view('public/public');
+		
+		//echo $pageId;
+		$this->load->model('adminModel');
+
+		$data = $this->adminModel->getPage($pageId);
+		$sliderImages = explode(';', $data['SliderImages']);
+
+		$genSettings = $this->adminModel->getGeneralSettings();
+		$data['HotelName'] = $genSettings['HotelName'];
+		$data['HotelAddress'] = $genSettings['HotelAddress'];
+		//echo "No of images: ".sizeof($sliderImages);
+		
+		if($sliderImages != ''){
+			$imageNames = array();
+			foreach ($sliderImages as $image) {
+				# code...
+				$v = explode(':', $image);
+
+				$imageNames[] = $v[0];
+				//array_push($imageNames, explode(':', $image)[0])
+			}
+			$data['SliderImages'] = $imageNames;
+		}
+
+		$data['pageId'] = $pageId;
+		$data['pageNames'] = $this->adminModel->getPageNames();
+		$this->load->view('public/public',$data);
 	}
 
-	public function viewPages($pageId){
+	/*public function viewPages($pageId){
 		# code...
 		$this->load->model('adminModel');
 
@@ -38,12 +64,15 @@ class Home extends CI_Controller {
 			$imageNames = array();
 			foreach ($sliderImages as $image) {
 				# code...
-				$imageNames[] = explode(':', $image)[0];
+				$v = explode(':', $image);
+
+				$imageNames[] = $v[0];
+				//array_push($imageNames, explode(':', $image)[0])
 			}
 			$data['SliderImages'] = $imageNames;
 		}
-		$this->load->view('public\public',$data);
-	}
+		$this->load->view('public/public',$data);
+	}*/
 
 	
 }
