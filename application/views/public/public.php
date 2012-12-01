@@ -5,23 +5,22 @@
 	<script src="<?= base_url() ?>resources/js/jquery-1.8.2.min.js"></script>
 	<script src="<?= base_url() ?>resources/js/h2o.js"></script>
 
-	<title>The Orange Tree Hotel</title>
+	<title><?= $Title . ' :: ' . ($HotelName ? $HotelName : '')?></title>
 </head>
 <body>
 <div class="logoWrapper">
-	<img id="logo" src="resources/branding/Logo.png">
+	<img id="logo" src="<?= ($Logo ? $Logo : '') ?>">
 </div>
 <div class="wrapper">
 	<div id="slider">
 		<img class="slideControl" id="slideControlLeft" src="<?= base_url() ?>resources/images/slider/sliderLeft.png" alt="Previous" />
 		<img class="slideControl" id="slideControlRight" src="<?= base_url() ?>resources/images/slider/sliderRight.png" alt="Next" />
 		<ul>
-			<li style="background: url('resources/images/slider/exterior.jpg') center center no-repeat; background-size: 978px 400px;">
-			</li>
-			<li style="background: url('resources/images/slider/interior.jpg') center center no-repeat; background-size: 978px 400px;">
-			</li>
-			<li style="background: url('resources/images/slider/conference.jpg') center center no-repeat; background-size: 978px 400px;">
-			</li>
+		<?php  foreach($SliderImages as $image) {
+			if($image != ''){
+		  ?>
+			<li style="background: url('<?= base_url() ?>resources/images/slider/<?= $image ?>') center center no-repeat; background-size: 978px 400px;"></li>
+		<?php }  }  ?>		
 		</ul>
 	</div>
 	<div id="contentWrapper">
@@ -40,24 +39,19 @@
 				</ul>
 			</nav>
 		</div>
-		<div>
+		<div style="display: none;">
 			<p><?php echo anchor('dashboard','Admin Dashboard') ?></p>
 		</div>
 
 		<div id="contentContainer">
 			<div id="textContainer">
-				<p>The Orange Tree Hotel is set in the historic market town of Stow-on-the-Wold, amid the warm honey coloured Cotswold stone buildings and rolling countryside, this 17th Century hotel has become justly renowned for its warm hospitality and delicious food.&nbsp; It is in the heart of the Cotswolds making it the ideal location from which to explore the beautiful Cotswold countryside.</p>
-				<p>Named after the ancient vine that shades the hotel's Conservatory restaurant (the second oldest indoor Orange Tree in the land, over 110 years old), The Orange Tree Hotel also has 22 individually furnished bedrooms.</p>
-				<p>Alternatively you can enjoy a selection of tapas or a homemade pizza and a glass of chilled Pinot Grigio in the Orange Tree Bar.</p>
-				<p>For Christmas and New Year join us for festivities under the lovely Orange Tree.</p>
-				<p><strong> </strong></p>
-				<p><strong>We look forward to welcoming you</strong> <strong> </strong><a title="Conservatory Restaurant" href=""><img src="./index_files/banner_conservatory.gif" border="0" alt="The Conservatory Restaurant" width="640" height="135"></a> <a title="La Vigna Brasserie" href=""></a> <a title="The Gigot Bar" href=""></a></p>
+				<?= $PageContent ?>
 			</div>
 		</div>
 
 		<div id="address">
-		  <strong>The Orange Tree Hotel</strong><br />
-		    Sheep Street, Stow-on-the-Wold, Gloucestershire GL54 1AU <br />
+		  <strong><?= $HotelName ? $HotelName : '' ?></strong><br />
+		    <?= $HotelAddress ? $HotelAddress : '' ?><br />
 		</div>
 
 		<div id="signature">
