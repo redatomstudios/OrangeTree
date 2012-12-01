@@ -14,3 +14,5 @@ Edit Room Pricing
 
 Page Parsing to View
   - Parse {{{}}}
+  - $HotelName
+  - $Logo
