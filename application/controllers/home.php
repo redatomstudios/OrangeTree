@@ -22,6 +22,26 @@ class Home extends CI_Controller {
 		$this->load->view('public/public');
 	}
 
+	public function viewPages($pageId){
+		# code...
+		$this->load->model('adminModel');
+
+		$data = $this->adminModel->getPage($pageId);
+		$sliderImages = explode(';', $data->SliderImages);
+
+		//echo "No of images: ".sizeof($sliderImages);
+		
+		if($sliderImages != ''){
+			$imageNames = array();
+			foreach ($sliderImages as $image) {
+				# code...
+				$imageNames[] = explode(':', $image)[0];
+			}
+			$data->SliderImages = $imageNames;
+		}
+		$this->load->view('public\template',$data);
+	}
+
 	
 }
 
