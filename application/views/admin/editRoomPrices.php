@@ -18,12 +18,32 @@
 		width: 150px;
 		text-align: center;
 		border: solid thin black;
+		cursor: pointer;
+		opacity: 0.9;
+	}
+
+	div.trabWrapper li:hover, div.trabWrapper li.selected {
+		background: 1;
+	}
+
+	div.tabWrapper table {
+		width: 100%;
+	}
+
+	div.tabWrapper th {
+		padding: 10px 0;
+		font-weight: bold;
+		font-size: 1em;
+	}
+
+	div.tabWrapper th.tableHeader {
+		padding: 30px 0 20px 0;
+		font-weight: bold;
+		font-size: 1.2em;
 	}
 
 	div.tabWrapper td {
 		text-align: center;
-		width: 80px;
-		border: solid thin black;
 	}
 
 	div.tabWrapper td div.date {
@@ -36,57 +56,44 @@
 		font-size: 1.5em;
 	}
 
-	div.tabWrapper td div.bookButton {
-		height: 20px;
-		width: 100%;
-		border: solid thin black;
-	}
-
 	div.tabWrapper li > h3 {
 		margin: 0;
 		padding: 0;
 	}
 
 	div.tabWrapper input[type="text"] {
-		width: 100px;
+		width: 90%;
 		text-align: center;
 		margin: 0 5px;
+	}
+
+	div.tabWrapper input[type="submit"]  {
+		margin-top: 20px;
 	}
 </style>
 
 <script>
 	jQuery(document).ready(function($){
-		$('div.tabWrap table').on('mouseover', 'td', function(){
-			$($(this).children('.bookButton')[0]).show().animate({opacity: 1});
-			console.log('oopserwew');
-		}).on('mouseout', 'td', function(){
-			$($(this).children('.bookButton')[0]).animate({opacity: 0}, function(){$(this).hide();});
-		});
+		// $('div.tabWrapper table').on('mouseover', 'td', function(){
+		// 	$($(this).children('.bookButton')[0]).show().animate({opacity: 1});
+		// }).on('mouseout', 'td', function(){
+		// 	$($(this).children('.bookButton')[0]).animate({opacity: 0}, function(){$(this).hide();});
+		// });
 	});
 </script>
 
+<h1>Room Pricing</h1>
 <div class="tabWrapper">
 <?= form_open('dashboard/editRooms') ?>
-	<h2 class="heading">Select room type:</h2>
-	<ul class="tabs">
-		<li>
-			<h3>Twin Room</h3>
-		</li>
-		<li>
-			<h3>Double Room</h3>
-		</li>
-		<li>
-			<h3>King Double</h3>
-		</li>
-	</ul>
-	<div class="clearFix"></div>
-	<h2 class="heading">Select date:</h2>
 	<?php
 		$today = date('d');
 		$days = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+		$roomTypes = array('Twin Room', 'Double Room', 'King Double');
+		$roomType = 0;
 	?>
 	<?php  foreach($RoomPrices as $roomId => $room) {  ?>
 	<table>
+		<tr><th colspan="7" class="tableHeader"><?= $roomTypes[$roomType++] ?></th></tr>
 		<tr>
 			<?php for($nameOfDay = 0; $nameOfDay < 7; $nameOfDay++) { ?>
 			<th><?= $days[(date('N') - 1 + $nameOfDay) % 7] ?></th>
