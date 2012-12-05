@@ -40,8 +40,13 @@
 			</div>
 			<input type="submit" value="Submit" />
 		<?= form_close() ?>
+
+		<?php if(isset($sliderImages)) { ?>
+
+		
 		<?= form_open_multipart('dashboard/deleteSliderImage') ?>
 			<input type="hidden" name="pageId" value="<?=$pageId?>">
+			
 			<div id='sliderPreview'>
 				<ul>
 					<?php  foreach($sliderImages as $image) {
@@ -71,8 +76,10 @@
 					
 				</ul>
 			</div>
+
+			
 			<br class="clearFix" />
 			<?= form_submit(array('name' => 'submit', 'style' => 'margin-top: 20px;'),'Save Slider') ?>
 		<?= form_close() ?>
-
+		<?php } ?>
 		<div id='patterBottom'></div>

@@ -88,10 +88,43 @@ class AdminModel extends CI_Model{
 
 		$this->db->select('SliderImages');
 		$query = $this->db->get_where('pages', array('Id' => $pageId));
-		$v = $query->row_array();
-		return $v['SliderImages'];
+		$res = $query->row_array();
+		return $res['SliderImages'];
 	}
 
+	public function updateMediaContent($id,$str){
+		# code...
+		$this->db->update('mediacontent',array('ViewString' => $str),array('Id' => $id));
+	}
+	
+	public function updateRoomPrices($data){
+		
+		$data['Twin Rooms'] = array(27.50,27.50,27.50,27.50,27.50,47.50,67.50);
+		$data['Double Rooms'] = array(42.50,42.50,42.50,42.50,42.50,67.50,95.00);
+		$data['King Double'] = array(77.50,77.50,77.50,77.50,77.50,105.00,155.00);
+
+		$string = '';
+
+		foreach ($data as $room) {
+
+			$checkDay = 0;
+			$checkPrice = $room[0];
+			$str[$room] = '0';
+			foreach ($room as $day => $price) {
+				if($day != $checkDay){
+					$str.= '-'.($day-1).':'.$checkPrice;
+				}
+
+			}
+		}
+	}
+
+	public function getRoomPrices(){
+		# code...
+		$prices = $this->db->get('rooms');
+		return($prices->result_array());
+	}
+	
 }
 
 

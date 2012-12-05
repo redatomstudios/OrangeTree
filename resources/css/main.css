@@ -20,6 +20,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 body {
 	line-height: 1;
+	font-size: 90%;
 }
 ol, ul {
 	list-style: none;
@@ -38,9 +39,14 @@ table {
 
 /* End Reset */
 
-a, a:visited, a:active, a:hover {
+a, a:visited, a:active {
 	text-decoration: none;
 	color: inherit;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 p {
@@ -52,21 +58,25 @@ strong {
 }
 
 h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 	margin: 20px 0;
 	font-weight: bold;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	margin: 20px 0;
 	font-weight: bold;
 }
 
 h3 {
-	font-size: 1.1em;
+	font-size: 1em;
 	margin: 10px 0;
 	font-weight: bold;
+}
+
+.centered {
+	text-align: center;
 }
 
 html {
