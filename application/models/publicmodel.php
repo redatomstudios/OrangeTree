@@ -11,7 +11,7 @@ class PublicModel extends CI_Model{
 
 	public function getMediaContents(){
 		# code...
-		$this->db->select('ContentName,ReplaceWithFileName');
+		$this->db->select('ContentName,ViewString');
 		$query = $this->db->get('mediacontent');
 		return $query->result_array();
 	}

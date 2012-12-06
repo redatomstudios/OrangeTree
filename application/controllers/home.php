@@ -48,11 +48,7 @@ class Home extends CI_Controller {
 				else{
 					foreach ($mediaContents as $mediaContent) {
 						if($str == $mediaContent['ContentName']){
-							$data = exec('php c:\xampp\htdocs\OrangeTree/resources/mediaContents/'.$mediaContent['ReplaceWithFileName']);
-							echo $data;
-							//$data = file_get_contents('c:\xampp\htdocs\OrangeTree/resources/mediaContents/'.$mediaContent['ReplaceWithFileName']);
-							return $data;
-							//return '<?php include(\''.$_SERVER['SERVER_NAME'].'/OrangeTree/resources/mediaContents/'.$mediaContent['ReplaceWithFileName'].'\') \?\> ');
+							return $mediaContent['ViewString'];
 						}
 					}
 				}

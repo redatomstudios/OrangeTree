@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller{
 	
 		parent::__construct();
 
-		if($this->session->userdata('name') == FALSE && $this->uri->uri_string() != 'dashboard/login' && $this->uri->uri_string() != 'dashboard/echoImage'){
+		if($this->session->userdata('name') == FALSE && $this->uri->uri_string() != 'dashboard/login'){
 			redirect('/dashboard/login');
 		}
 
@@ -58,7 +58,7 @@ class Dashboard extends CI_Controller{
 	public function logout(){
 
 		$this->session->sess_destroy();
-		redirect('/home');
+		redirect('home');
 	}
 
 
@@ -104,7 +104,7 @@ class Dashboard extends CI_Controller{
 		}
 		else{
 			if($this->adminModel->updatePage($this->input->post()))
-				redirect('/dashboard/editPage/'.$pageId);
+				redirect('dashboard/editPage/'.$pageId);
 			else
 				echo "Page Update Failed";
 		}
@@ -116,7 +116,6 @@ class Dashboard extends CI_Controller{
 		if(!$_POST){
 
 			$prices = $this->adminModel->getRoomPrices();
-
 			// echo "<pre>";
 			// print_r($prices);
 			foreach ($prices as $room) {
@@ -135,7 +134,7 @@ class Dashboard extends CI_Controller{
 		else{
 			$data = $this->input->post();
 
-			// echo "<pre>";
+			// echo "<pre> Data:";
 			// print_r($data);
 			foreach ($data as $key => $value) {
 				$keySplit = explode('_', $key);
@@ -149,35 +148,47 @@ class Dashboard extends CI_Controller{
 				elseif ($keySplit[0] == '3') {
 					$kin[$keySplit[1]] = $value;
 				}
+				//echo "<br><br> KeySplit[1]: ".$keySplit[1] . "<br> Value: ". $value;
 			}
+			ksort($twi);
+			ksort($dou);
+			ksort($kin);
+
+			// print_r($twi);
+			// print_r($dou);
+			// print_r($kin);
+
+
+			$data = null;
+
+			$dat[1] = $twi;
+			$dat[2] = $dou;
+			$dat[3] = $kin;
 
 			$str = '';
 			for($i=0;$i<sizeof($twi);$i++) {
 				$str.=$twi[$i].';'; 
 			}
 			$str = substr($str, 0, -1);
-			$dat[1] = $str;
+			$data[1] = $str;
 
 			$str = '';
 			for($i=0;$i<sizeof($dou);$i++) {
 				$str.=$dou[$i].';'; 
 			}
 			$str = substr($str, 0, -1);
-			$dat[2] = $str;
+			$data[2] = $str;
+
 			$str = '';
 			for($i=0;$i<sizeof($kin);$i++) {
 				$str.=$kin[$i].';'; 
 			}
 			$str = substr($str, 0, -1);
-			$dat[3] = $str;
+			$data[3] = $str;
 
-			// echo "<pre>";
-			// print_r($twi);
-			// print_r($dou);
-			// print_r($kin);
-			// print_r($dat);
-
-			$this->adminModel->updateRoomPrices($dat);
+			if($this->adminModel->updateRoomPrices($data)){
+				include('.'.base_url().'resources/mediaContents/viewPriceTable.php');
+			}
 
 			redirect('dashboard/editRooms');
 		}
