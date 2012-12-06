@@ -130,10 +130,10 @@ ob_start();
 				updateString = 'Book a ' + roomType + ' room on ' + month + ' ' + day + ', ' + year + ' for &pound;' + amount + '. Check out to continue.';
 		
 		$('#bookText').html(updateString);
-		document.getElementById('roomType').value = $roomType;
-		document.getElementById('month').value = $month;
-		document.getElementById('day').value = $day;
-		document.getElementById('amount').value = $amount;
+		document.getElementById('roomType').value = roomType;
+		document.getElementById('month').value = month;
+		document.getElementById('day').value = day;
+		document.getElementById('year').value = year;
 		$('#sButton').show();
 	}
 
