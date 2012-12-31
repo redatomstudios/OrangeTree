@@ -1,0 +1,275 @@
+/* CSS Document */
+/* Created by redAtom Studios @ 2012 */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End Reset */
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+}
+
+p {
+	margin: 20px 0;
+}
+
+strong {
+	font-weight: bold;
+}
+
+html {
+	background: url('../images/bgRepeat.jpg');
+}
+
+body {
+	font-family: Arial, Verdana, sans-serif;
+	background: url('../images/bgGradient.png') center top repeat-x;
+}
+
+div#sidebar {
+	width: 300px;
+	height: 100%;
+	box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
+	border-right: solid 2px #FFF;
+	color: #FFF;
+	float: left;
+	overflow: auto;
+}
+
+div#sidebar span#name {
+	margin-top: 20px;
+	padding-left: 30px;
+	display: none;
+}
+
+div#sidebar nav {
+	margin-top: 50px;
+}
+
+div#sidebar li {
+	padding-left: 30px;
+	padding-right: 20px;
+	height: 2em;
+	line-height: 2em;
+}
+
+li > a {
+	display: block;
+	font-weight: bold;
+}
+
+div#sidebar li:not(.spacer):not(.current):hover {
+	background: #DDD;
+	color: #000;
+}
+
+div#sidebar li.current {
+	background: #FFF;
+	color: #000;
+}
+
+div#dashContents {
+	background: #FFF;
+	height: 100%;
+	overflow: auto;
+	padding-left: 50px;
+}
+
+div#dashContents h1 {
+	margin-top: 63px;
+	margin-bottom: 63px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+form {
+	background: rgba(0, 0, 0, 0.07);
+	padding: 10px;
+	margin: 10px 50px 0 0;
+	position: relative;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input, textarea, select {
+	margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"], select, option {
+	height: 44px;
+	font-size: 18px;
+	width: 300px;
+	padding: 0 10px;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+	border: solid thin white;
+	background: #DDD;
+}
+
+select, option {
+	width: 300px;
+	padding: 0;
+	cursor: pointer;
+	border: solid thin #AAA;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
+	outline: none;
+	background: #EEE;
+}
+
+form div.hinting {
+	font-size: 0.9em;
+	color: #999;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+
+.caution {
+	color: #F00;
+	opacity: 1;
+	font-weight: bold;
+}
+
+textarea {
+	width: 100%;
+	height: 200px;
+	resize: none;
+}
+
+input[type='submit'], input[type='button'] {
+	height: 3em;
+	padding: 0 50px;
+	cursor: pointer;
+}
+
+div#sliderPreview {
+	width: 100%;
+	overflow: hidden;
+	margin: 0 0 0 -15px;
+	text-align: center;
+	padding: 15px;
+	position: relative;
+}
+
+div#sliderPreview img#slideControlRight, div#sliderPreview img#slideControlLeft {
+	position: absolute; 
+	top: 180px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+div#sliderPreview img#slideControlRight {
+	right: 30px;
+}
+
+div#sliderPreview img#slideControlLeft {
+	left: 30px;
+}
+
+img.slideControl {
+	opacity: 0.6;
+}
+
+img.slideControl:hover {
+	opacity: 1;
+}
+
+div#sliderPreview ul {
+	position: relative;
+	overflow: hidden;
+}
+
+div#sliderThumbs {
+	margin: 10px 0 30px;
+	height: 100px;
+}
+
+div#sliderThumbs li {
+	height: 100%;
+	width: 122px;
+	float: left;
+	padding: 0 10px;
+	border: solid 2px rgba(0, 0, 0, 0);
+	background: #FFF;
+	cursor: pointer;
+}
+
+div#sliderThumbs li:hover {
+	border: solid 2px black;
+}
+
+div#sliderThumbs li > img {
+	width: 122px;
+	margin: 10px 0;
+}
+
+div#sliderThumbs li > input[type="button"] {
+	height: 2em;
+	width: 100%;
+	text-align: center;
+	padding: 0;
+}
+
+div#sliderPreview ul li {
+	float: left;
+	display: inline;
+}
+
+div#sliderPreview ul li > img {
+	width: 100%;
+
+}
+
+div#patterBottom {
+	padding: 50px 0;
+}
+
+.clearFix {
+	clear: both;
+}
+
+#delPage {
+	position: absolute; 
+	top: 0;
+	right: 0;
+	margin: 10px;
+}
